@@ -29,7 +29,7 @@ async def on_message(message):
         text = spongemock.sponge(message.content)
         await message.channel.send(text)
     if('trade') in message.content:
-        await message.channel.send("I VETO THIS TRADE AUTOMATICALLY!")
+        await message.channel.send(file=discord.File('no trades.jpg'))
 
     
 client.run(os.environ['DISCORD_TOKEN'])
