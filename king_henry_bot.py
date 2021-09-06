@@ -31,8 +31,7 @@ async def on_message(message):
         await message.channel.send(text)
     if('trade') in message.content:
         await message.channel.send(file=discord.File('no trades.jpg'))
-    if (('who') or ('what') or ('which')) and (('qb') or ('quarterback')) \
-       in message.content:
+    if (('who') or ('what') or ('which')) in message.content:
         await message.channel.send(random_qb.which_qb())
 
     
