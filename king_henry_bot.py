@@ -2,6 +2,7 @@ import discord
 import os
 import spongemock
 import random_qb
+import random_rb
 
 
 
@@ -36,6 +37,9 @@ async def on_message(message):
     if any(word in message.content for word in questions) \
        and any(thing in message.content for thing in other_stuff):
         await message.channel.send(random_qb.which_qb())
+    if any(word in message.content for word in questions) \
+       and any(thing in message.content for thing in rbeez):
+        await message.channel.send(random_rb.which_rb())    
 
     
 client.run(os.environ['DISCORD_TOKEN'])
