@@ -40,12 +40,11 @@ async def on_message(message):
     if('trade') in message.content:
         await message.channel.send(file=discord.File('no trades.jpg'))
     if any(word in message.content for word in questions) \
-       and any(thing in message.content for thing in rbeez):
-        await message.channel.send(random_rb.which_rb())  
-    elif any(word in message.content for word in questions) \
        and any(thing in message.content for thing in qbeez):
         await message.channel.send(random_qb.which_qb())
-      
+    elif any(word in message.content for word in questions) \
+       and any(thing in message.content for thing in rbeez):
+        await message.channel.send(random_rb.which_rb())    
     if any(word in message.content for word in questions) \
        and any(thing in message.content for thing in winloss):
         await message.channel.send(random_player.which_player())    
