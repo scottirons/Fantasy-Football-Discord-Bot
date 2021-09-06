@@ -15,20 +15,20 @@ async def on_message(message):
     message.content = message.content.lower()
     if ('king henry') in message.content:
         await message.channel.send("\U0001F451")
-    elif ('henry henry henry') in message.content:
+    if ('henry henry henry') in message.content:
         await message.channel.send("KING KING KING!")
     elif ('henry') in message.content:
         await message.channel.send("That's King Henry to you.")
-    elif ('kelce') in message.content:
+    if ('kelce') in message.content:
         await message.channel.send("Ben, why didn't you draft me instead? \U0001F97A")
-    elif('fumble') in message.content:
+    if('fumble') in message.content:
         await message.channel.send(file=discord.File('zeke.jpg'))
-    elif('qb') in message.content:
+    if('qb') in message.content:
         await message.channel.send(file=discord.File('manningface.jpg'))
-    elif('veto') in message.content:
+    if('veto') in message.content:
         text = spongemock.sponge(message.content)
         await message.channel.send(text)
-    elif('trade') in message.content:
+    if('trade') in message.content:
         await message.channel.send("I VETO THIS TRADE AUTOMATICALLY!")
 
     
