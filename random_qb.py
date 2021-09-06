@@ -1,5 +1,6 @@
 import random
-
+questions = ['who', 'what', 'which']
+other_stuff = ['qb', 'quarterback']
 def which_qb():
 
     my_file = open("quarterbacks.txt", "r")

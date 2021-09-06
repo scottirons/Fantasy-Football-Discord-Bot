@@ -3,8 +3,7 @@ import os
 import spongemock
 import random_qb
 
-questions = ['who', 'what', 'which']
-other_stuff = ['qb', 'quarterback']
+
 
 client = discord.Client()
 
