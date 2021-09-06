@@ -1,0 +1,1 @@
+worker: python king_henry_bot.py
