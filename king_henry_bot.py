@@ -6,7 +6,7 @@ import random_rb
 import random_player
 
 questions = ['who', 'what', 'which']
-rbeez = ['rb', 'running back', 'runningback']
+rbeez = ['rb', 'running', 'runningback']
 qbeez = ['qb', 'quarterback']
 winloss = ['win', 'lose', 'last', 'first']
 
