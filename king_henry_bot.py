@@ -15,7 +15,7 @@ async def on_message(message):
     message.content = message.content.lower()
     if ('king henry') in message.content:
         await message.channel.send("\U0001F451")
-    if ('henry henry henry') in message.content:
+    elif ('henry henry henry') in message.content:
         await message.channel.send("KING KING KING!")
     elif ('henry') in message.content:
         await message.channel.send("That's King Henry to you.")
