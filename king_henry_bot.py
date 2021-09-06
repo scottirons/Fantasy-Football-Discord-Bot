@@ -42,6 +42,10 @@ async def on_message(message):
     if any(word in message.content for word in questions) \
        and any(thing in message.content for thing in rbeez):
         await message.channel.send(random_rb.which_rb())    
+    if any(word in message.content for word in questions) \
+       and ('win') in message.content:
+        await message.channel.send(random_player.which_player())    
+
 
     
 client.run(os.environ['DISCORD_TOKEN'])
