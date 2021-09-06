@@ -1,6 +1,7 @@
 import discord
 import os
-import spongemock 
+import spongemock
+import random_qb
 
 client = discord.Client()
 
@@ -30,6 +31,8 @@ async def on_message(message):
         await message.channel.send(text)
     if('trade') in message.content:
         await message.channel.send(file=discord.File('no trades.jpg'))
+    if (('who') or ('what')) and (('qb') or ('quarberback')) in message.content:
+        await message.channel.send(random_qb.which_qb())
 
     
 client.run(os.environ['DISCORD_TOKEN'])
