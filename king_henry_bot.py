@@ -3,7 +3,9 @@ import os
 import spongemock
 import random_qb
 import random_rb
-
+questions = ['who', 'what', 'which']
+rbeez = ['rb', 'running back', 'runningback']
+qbeez = ['qb', 'quarterback']
 
 
 client = discord.Client()
@@ -35,7 +37,7 @@ async def on_message(message):
     if('trade') in message.content:
         await message.channel.send(file=discord.File('no trades.jpg'))
     if any(word in message.content for word in questions) \
-       and any(thing in message.content for thing in other_stuff):
+       and any(thing in message.content for thing in qbeez):
         await message.channel.send(random_qb.which_qb())
     if any(word in message.content for word in questions) \
        and any(thing in message.content for thing in rbeez):

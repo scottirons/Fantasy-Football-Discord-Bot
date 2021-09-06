@@ -1,6 +1,5 @@
 import random
-questions = ['who', 'what', 'which']
-rbeez = ['rb', 'running back', 'runningback']
+
 def which_rb():
 
     my_file = open("rbs.txt", "r")
