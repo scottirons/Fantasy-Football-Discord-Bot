@@ -3,6 +3,8 @@ import os
 import spongemock
 import random_qb
 import random_rb
+import random_player
+
 questions = ['who', 'what', 'which']
 rbeez = ['rb', 'running back', 'runningback']
 qbeez = ['qb', 'quarterback']
