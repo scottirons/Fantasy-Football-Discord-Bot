@@ -3,6 +3,9 @@ import os
 import spongemock
 import random_qb
 
+questions = ['who', 'what', 'where']
+other_stuff = ['qb', 'quarterback']
+
 client = discord.Client()
 
 @client.event
@@ -31,7 +34,8 @@ async def on_message(message):
         await message.channel.send(text)
     if('trade') in message.content:
         await message.channel.send(file=discord.File('no trades.jpg'))
-    if (('who') or ('what') or ('which')) in message.content:
+    if any(word in message.content for word in questions) \
+       and any(thing in message.content for thing in other_stuff):
         await message.channel.send(random_qb.which_qb())
 
     
