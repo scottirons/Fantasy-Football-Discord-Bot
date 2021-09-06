@@ -28,6 +28,8 @@ async def on_message(message):
     elif('veto') in message.content:
         text = spongemock.sponge(message.content)
         await message.channel.send(text)
+    elif('trade') in message.content:
+        await message.channel.send("I VETO THIS TRADE AUTOMATICALLY!")
 
     
 client.run(os.environ['DISCORD_TOKEN'])
