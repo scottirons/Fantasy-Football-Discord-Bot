@@ -55,9 +55,9 @@ async def on_message(message):
         await message.channel.send(file=discord.File('watchyourprofanity.gif'))
     if ('start') in message.content:
         await message.channel.send("what's your name?")
-        name = await client.wait_for('message')
+        myname = await client.wait_for('message', check=check, timeout=15)
         await message.channel.send("what position?")
-        position = await client.wait_for('message')
+        myposition = await client.wait_for('message', check=check, timeout=15)
         await message.channel.send(name)
 
 
