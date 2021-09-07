@@ -49,7 +49,7 @@ async def on_message(message):
     if any(word in message.content for word in questions) \
        and any(thing in message.content for thing in winloss):
         await message.channel.send(random_player.which_player())
-    if any(word in message.content for word in swears)
+    if any(word in message.content for word in swears):
         await message.channel.send(file=discord.File('watchyourprofanity.gif'))
 
 
