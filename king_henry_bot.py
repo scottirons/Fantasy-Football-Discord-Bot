@@ -31,7 +31,7 @@ async def starters(ctx):
     position = position.content
     response = starterpick.who_start(msg,position)
     response = response.content
-    await ctx.send(response))
+    await ctx.send(response)
 
 @client.event
 async def on_message(message):
