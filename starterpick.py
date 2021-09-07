@@ -47,13 +47,13 @@ def who_start(playername, whatpos):
         whatpos = 'd/st'
     if whatpos.lower() in ('running back', 'running'):
         whatpos = 'rb'
-    if whatpos.lower() in ('quarter back', 'quarterback'):
+    if whatpos.lower() in ('quarter back', 'quarterback', 'Qb', 'QB'):
         whatpos = 'qb'
     elif 'quarter' in whatpos.lower():
         whatpos = 'qb'
     elif whatpos.lower() == 'kicker':
         whatpos = 'k'
-    if whatpos in ('k', 'te', 'qb', 'd/st', 'qb'):
+    if whatpos in ('k', 'te', 'qb', 'd/st'):
         return('You should start '+ random.choice(nested_dict[playername][0][whatpos.upper()]) + '.')
     elif whatpos == 'flex':
         newpos = random.choice(['wr', 'rb'])
