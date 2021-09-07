@@ -29,7 +29,9 @@ async def starters(ctx):
     await ctx.send("What position?")
     position = await client.wait_for('message', check=lambda message: message.author == ctx.author)
     position = position.content
-    await ctx.send(starterpick.who_start(msg,position))
+    response = starterpick.who_start(msg,position)
+    response = response.content
+    await ctx.send(response))
 
 @client.event
 async def on_message(message):
