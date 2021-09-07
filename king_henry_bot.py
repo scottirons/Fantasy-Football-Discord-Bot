@@ -22,6 +22,12 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
+@bot.command()
+async def starter(ctx, myname, position):
+    await ctx.send(myname)
+    await ctx.send(position)
+    await ctx.send(starterpick.who_start(myname, position))
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -56,11 +62,7 @@ async def on_message(message):
     if any(word in message.content for word in swears):
         await message.channel.send(file=discord.File('watchyourprofanity.gif'))
     
-@bot.command()
-async def starter(ctx, myname, position):
-    await ctx.send(myname)
-    await ctx.send(position)
-    await ctx.send(starterpick.who_start(myname, position))
+
 
     
 client.run(os.environ['DISCORD_TOKEN'])
