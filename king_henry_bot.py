@@ -22,7 +22,7 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-@bot.command()
+@client.command()
 async def starter(ctx, myname, position):
     await ctx.send(myname)
     await ctx.send(position)
