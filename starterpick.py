@@ -37,15 +37,15 @@ nested_dict = dict(zip(ournames, list(nested_dict.values())))
 #print(nested_dict)
 
 
-def who_start():
-    playername = input("What's your name?\n")
+def who_start(playername, whatpos):
     playername = playername.capitalize()
-    whatpos = input("What position are you asking about?\n")
     if whatpos.lower() == 'defense':
         whatpos = 'd/st'
     elif whatpos.lower() == 'kicker':
         whatpos = 'k'
     print(random.choice(nested_dict[playername][0][whatpos.upper()]))
+
+
     
 
 
