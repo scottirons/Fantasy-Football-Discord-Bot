@@ -58,7 +58,7 @@ async def on_message(message):
         myname = await client.wait_for('message', timeout=15)
         await message.channel.send("what position?")
         myposition = await client.wait_for('message', timeout=15)
-        await message.channel.send(name)
+        await message.channel.send(myname)
 
 
     
