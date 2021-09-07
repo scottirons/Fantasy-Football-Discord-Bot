@@ -4,6 +4,7 @@ import spongemock
 import random_qb
 import random_rb
 import random_player
+import espnapi
 
 questions = ['who', 'what', 'which']
 rbeez = ['rb', 'running back', 'runningback']
@@ -51,6 +52,8 @@ async def on_message(message):
         await message.channel.send(random_player.which_player())
     if any(word in message.content for word in swears):
         await message.channel.send(file=discord.File('watchyourprofanity.gif'))
+    if ('Who should I start?') in message.content:
+        espnapi.who_start()
 
 
     
