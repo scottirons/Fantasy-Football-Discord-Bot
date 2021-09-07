@@ -5,6 +5,8 @@ import random_qb
 import random_rb
 import random_player
 import starterpick
+from discord.ext.commands import Bot
+bot = Bot("!")
 
 
 questions = ['who', 'what', 'which']
@@ -54,7 +56,7 @@ async def on_message(message):
     if any(word in message.content for word in swears):
         await message.channel.send(file=discord.File('watchyourprofanity.gif'))
     
-@client.command()
+@bot.command()
 async def starter(ctx, myname, position):
     await ctx.send(starterpick.who_start(myname, position))
 
