@@ -43,7 +43,7 @@ def who_start(playername, whatpos):
         whatpos = 'd/st'
     elif whatpos.lower() == 'kicker':
         whatpos = 'k'
-    print(random.choice(nested_dict[playername][0][whatpos.upper()]))
+    print('you should start', random.choice(nested_dict[playername][0][whatpos.upper()]))
 
 
     
