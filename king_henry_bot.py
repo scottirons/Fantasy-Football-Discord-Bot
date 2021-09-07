@@ -55,7 +55,7 @@ async def on_message(message):
         await message.channel.send(file=discord.File('watchyourprofanity.gif'))
     
 @client.command()
-async def starter(ctx, myname, position)
+async def starter(ctx, myname, position):
     await ctx.send(starterpick.who_start(myname, position))
 
     
