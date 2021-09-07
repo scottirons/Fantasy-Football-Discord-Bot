@@ -53,7 +53,7 @@ def who_start(playername, whatpos):
         whatpos = 'qb'
     elif whatpos.lower() == 'kicker':
         whatpos = 'k'
-    if whatpos in ('k', 'te', 'qb', 'd/st'):
+    if whatpos in ('k', 'te', 'qb', 'd/st', 'qb'):
         return('You should start '+ random.choice(nested_dict[playername][0][whatpos.upper()]) + '.')
     elif whatpos == 'flex':
         newpos = random.choice(['wr', 'rb'])
