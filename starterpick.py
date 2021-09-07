@@ -38,6 +38,10 @@ nested_dict = dict(zip(ournames, list(nested_dict.values())))
 
 
 def who_start(playername, whatpos):
+    if 'mom' in playername:
+        return('bruh')
+    if 'doggy' in whatpos:
+        return('bruh')
     playername = playername.capitalize()
     if whatpos.lower() == 'defense':
         whatpos = 'd/st'
