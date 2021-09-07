@@ -1,4 +1,4 @@
-from espn_api.football import League
+import league
 import random
 
 league = League(league_id=41302936, year=2021, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh'\

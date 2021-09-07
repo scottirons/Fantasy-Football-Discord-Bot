@@ -4,7 +4,7 @@ import spongemock
 import random_qb
 import random_rb
 import random_player
-import espnapi
+import starterpick
 
 
 questions = ['who', 'what', 'which']
@@ -54,7 +54,7 @@ async def on_message(message):
     if any(word in message.content for word in swears):
         await message.channel.send(file=discord.File('watchyourprofanity.gif'))
     if ('Who should I start?') in message.content:
-        espnapi.who_start()
+        starterpick.who_start()
 
 
     
