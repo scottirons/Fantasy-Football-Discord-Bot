@@ -56,9 +56,9 @@ async def on_message(message):
     if ('Who should I start?') in message.content:
         await message.channel.send("what's your name?")
         name = input()
-        await message.channel.send("what position")
+        await message.channel.send("what position?")
         position = input()
-        await message.channel.send(who_start(name, position)
+        await message.channel.send(who_start(name, position))
 
 
     
