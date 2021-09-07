@@ -48,4 +48,4 @@ def who_start():
     print(random.choice(nested_dict[playername][0][whatpos.upper()]))
     
 
-who_start()
+
