@@ -6,7 +6,7 @@ import random_rb
 import random_player
 import starterpick
 from discord.ext.commands import Bot
-bot = Bot("!")
+bot = commands.Bot(".")
 
 
 questions = ['who', 'what', 'which']
@@ -22,7 +22,7 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-@client.command()
+@bot.command()
 async def starter(ctx, myname, position):
     await ctx.send(myname)
     await ctx.send(position)
