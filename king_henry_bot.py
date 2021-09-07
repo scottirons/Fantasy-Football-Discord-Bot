@@ -9,6 +9,7 @@ questions = ['who', 'what', 'which']
 rbeez = ['rb', 'running back', 'runningback']
 qbeez = ['qb', 'quarterback']
 winloss = ['win', 'lose', 'last', 'first']
+swears = ['fuck', 'shit', 'damn', 'hell', 'ass', 'bitch'] 
 
 
 client = discord.Client()
@@ -47,7 +48,9 @@ async def on_message(message):
         await message.channel.send(random_rb.which_rb())    
     if any(word in message.content for word in questions) \
        and any(thing in message.content for thing in winloss):
-        await message.channel.send(random_player.which_player())    
+        await message.channel.send(random_player.which_player())
+    if any(word in message.content for word in swears)
+        await message.channel.send(file=discord.File('watchyourprofanity.gif'))
 
 
     
