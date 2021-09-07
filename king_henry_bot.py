@@ -21,7 +21,9 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
 
-    
+@client.command()
+async def starters(ctx):
+    await ctx.send('pls')
 
 @client.event
 async def on_message(message):
@@ -56,6 +58,7 @@ async def on_message(message):
         await message.channel.send(random_player.which_player())
     if any(word in message.content for word in swears):
         await message.channel.send(file=discord.File('watchyourprofanity.gif'))
+    await client.process_commands(message)
     
 
 
