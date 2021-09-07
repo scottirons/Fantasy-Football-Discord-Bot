@@ -5,6 +5,7 @@ import random_qb
 import random_rb
 import random_player
 import starterpick
+from discord.ext import commands
 
 questions = ['who', 'what', 'which']
 rbeez = ['rb', 'running back', 'runningback']
@@ -13,21 +14,13 @@ winloss = ['win', 'lose', 'last', 'first']
 swears = ['fuck', 'shit', 'damn', 'hell', 'ass', 'bitch'] 
 
 
-client = discord.Client()
+client = commands.Bot(command_prefix=['!'])
 
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-@client.command()
-async def starter(ctx, myname, player):
-    await ctx.send("what's your name?")
-    def check(m):
-        return m.author.id == ctx.author.id
 
-
-    myname = await client.wait_for('message', check=check)
-    await channel.send(myname)
     
 
 @client.event
