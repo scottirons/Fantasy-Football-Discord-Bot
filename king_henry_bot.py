@@ -53,7 +53,7 @@ async def on_message(message):
         await message.channel.send(random_player.which_player())
     if any(word in message.content for word in swears):
         await message.channel.send(file=discord.File('watchyourprofanity.gif'))
-    if ('Who should I start?') in message.content:
+    if ('start') in message.content:
         await message.channel.send("what's your name?")
         name = input()
         await message.channel.send("what position?")
