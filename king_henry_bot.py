@@ -23,7 +23,11 @@ async def on_ready():
 
 @client.command()
 async def starters(ctx):
-    await ctx.send('pls')
+    await ctx.send("What's your name?")
+    msg = await client.wait_for('message', check=lambda message: message.author == ctx.author)
+    await ctx.send("What position?")
+    position = await client.wait_for('message', check=lambda message: message.author == ctx.author)
+    await ctx.send(starterpick.who_start(msg, position))
 
 @client.event
 async def on_message(message):
