@@ -37,8 +37,8 @@ async def on_message(message):
         await message.channel.send("Ben, why didn't you draft me instead? \U0001F97A")
     if('fumble') in message.content:
         await message.channel.send(file=discord.File('zeke.jpg'))
-    if('qb') in message.content:
-        await message.channel.send(file=discord.File('manningface.jpg'))
+   # if('qb') in message.content:
+   #     await message.channel.send(file=discord.File('manningface.jpg'))
     if('veto') in message.content:
         text = spongemock.sponge(message.content)
         await message.channel.send(text)
@@ -58,6 +58,8 @@ async def on_message(message):
     
 @bot.command()
 async def starter(ctx, myname, position):
+    await ctx.send(myname)
+    await ctx.send(position)
     await ctx.send(starterpick.who_start(myname, position))
 
     
