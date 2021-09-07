@@ -47,7 +47,7 @@ def who_start(playername, whatpos):
         whatpos = 'd/st'
     if whatpos.lower() in ('running back', 'running'):
         whatpos = 'rb'
-    if whatpos.lower() in ('quarter back', 'quarterback', 'Qb', 'QB'):
+    if whatpos.lower() in ('quarter back', 'quarterback', 'qb'):
         whatpos = 'qb'
     elif 'quarter' in whatpos.lower():
         whatpos = 'qb'
