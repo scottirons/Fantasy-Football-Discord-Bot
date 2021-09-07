@@ -43,8 +43,12 @@ def who_start(playername, whatpos):
     if 'doggy' in whatpos:
         return('bruh')
     playername = playername.capitalize()
-    if whatpos.lower() == 'defense':
+    if whatpos.lower() in ('defense', 'def', 'd'):
         whatpos = 'd/st'
+    if whatpos.lower() in ('running back', 'running'):
+        whatpos = 'rb'
+    if whatpos.lower() in ('quarter back'):
+        whatpos = 'qb'
     elif whatpos.lower() == 'kicker':
         whatpos = 'k'
     if whatpos in ('k', 'te', 'qb', 'd/st'):
@@ -60,6 +64,6 @@ def who_start(playername, whatpos):
                 break
         return('You should start ' + choice1 + ' and ' + choice2 + '.')
 
-#print(who_start('scott','flex'))
+#print(who_start('scott','doggystyle'))
 
 
