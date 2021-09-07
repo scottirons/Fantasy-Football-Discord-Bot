@@ -5,9 +5,6 @@ import random_qb
 import random_rb
 import random_player
 import starterpick
-from discord.ext.commands import Bot
-bot = commands.Bot(".")
-
 
 questions = ['who', 'what', 'which']
 rbeez = ['rb', 'running back', 'runningback']
@@ -22,11 +19,16 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-@bot.command()
-async def starter(ctx, myname, position):
-    await ctx.send(myname)
-    await ctx.send(position)
-    await ctx.send(starterpick.who_start(myname, position))
+@client.command()
+async def starter(ctx, myname, player):
+    await ctx.send("what's your name?")
+    def check(m):
+        return m.author.id == ctx.author.id
+
+
+    myname = await client.wait_for('message', check=check)
+    await channel.send(myname)
+    
 
 @client.event
 async def on_message(message):
