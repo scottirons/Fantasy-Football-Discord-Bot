@@ -30,7 +30,7 @@ for team in league.teams:
         pos_name.setdefault(player.position,[]).append(player.name)
     nested_dict.setdefault(team.team_name, []).append(pos_name)
 
-ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'JRog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
+ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
 positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
 
