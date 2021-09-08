@@ -71,6 +71,8 @@ async def on_message(message):
         await message.channel.send("\U0001F451")
     elif ('henry henry henry') in message.content:
         await message.channel.send("KING KING KING!")
+    elif ('king king king') in message.content:
+        await message.channel.send("HENRY HENRY HENRY!")
     elif ('henry') in message.content:
         await message.channel.send("That's King Henry to you.")
     if ('kelce') in message.content:
