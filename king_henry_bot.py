@@ -71,6 +71,10 @@ async def on_message(message):
         await message.channel.send("\U0001F451")
     if ('thank you') or ('thanks') or ('thank u') in message.content:
         await message.channel.send("Ain't no thang, gurl")
+    if ('good bot') in message.content:
+        await message.channel.send('You know it.')
+    if ('bad bot') in message.content:
+        await message.channel.send('no u')
     elif ('henry henry henry') in message.content:
         await message.channel.send("KING KING KING!")
     elif ('king king king') in message.content:
