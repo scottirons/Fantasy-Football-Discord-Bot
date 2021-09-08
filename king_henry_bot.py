@@ -6,12 +6,19 @@ import random_rb
 import random_player
 import starterpick
 from discord.ext import commands
+import asyncio
+
 
 questions = ['who', 'what', 'which']
 rbeez = ['rb', 'running back', 'runningback']
 qbeez = ['qb', 'quarterback']
 winloss = ['win', 'lose', 'last', 'first']
-swears = ['fuck', 'shit', 'damn', 'hell', 'ass', 'bitch'] 
+swears = ['fuck', 'shit', 'damn', 'hell', 'ass', 'bitch']
+ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',\
+            'JRog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
+positions = ['k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',\
+             'quarterback', 'd/st', 'def', 'defense', 'kicker', 'flex', 'te',\
+             'tight end', 'wr', 'wide receiver']
 
 
 client = commands.Bot(command_prefix=['!'])
@@ -23,13 +30,37 @@ async def on_ready():
 
 @client.command()
 async def starters(ctx):
-    await ctx.send("What's your name?")
-    msg = await client.wait_for('message', check=lambda message: message.author == ctx.author)
-    msg = msg.content
-    await ctx.send("What position?")
-    position = await client.wait_for('message', check=lambda message: message.author == ctx.author)
-    position = position.content
-    await ctx.channel.send(starterpick.who_start(msg,position))
+
+    try:        
+        await ctx.send("What's your name?")
+        msg = await client.wait_for('message', check=lambda \
+                message: message.author == ctx.author, timeout=10)
+        
+        if msg:
+            msg = msg.content
+            if msg.capitalize() not in ournames:
+                await ctx.send("I'm sorry, I don't recognize that name. "
+                               "You get one more try." )
+                msg = await client.wait_for('message', check=lambda \
+                message: message.author == ctx.author, timeout=10)
+                msg = msg.content
+            await ctx.send("What position?")
+            position = await client.wait_for('message', check=lambda \
+                    message: message.author == ctx.author, timeout=10)
+        if position:
+            position = position.content
+            if position not in positions:
+                await ctx.send("I'm sorry, I don't recognize that position. "\
+                               "You get one more try." )
+                position = await client.wait_for('message', check=lambda \
+                    message: message.author == ctx.author, timeout=10)
+                position = position.content            
+            await ctx.channel.send(starterpick.who_start(msg,position))
+        
+    except asyncio.TimeoutError:
+        await ctx.send('TOO SLOW!')
+        
+    
 
 @client.event
 async def on_message(message):
@@ -70,3 +101,6 @@ async def on_message(message):
 
     
 client.run(os.environ['DISCORD_TOKEN'])
+
+
+

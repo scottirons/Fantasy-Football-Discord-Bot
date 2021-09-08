@@ -31,7 +31,7 @@ for team in league.teams:
     nested_dict.setdefault(team.team_name, []).append(pos_name)
 
 ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'JRog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
-
+positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
 
 #print(nested_dict)
@@ -42,6 +42,8 @@ def who_start(playername, whatpos):
         return('bruh')
     if 'doggy' in whatpos:
         return('bruh')
+    if playername.capitalize() not in nested_dict:
+        return('name does not exist')
     playername = playername.capitalize()
     if whatpos.lower() in ('defense', 'def', 'd'):
         whatpos = 'd/st'
@@ -49,10 +51,14 @@ def who_start(playername, whatpos):
         whatpos = 'rb'
     if whatpos.lower() in ('quarter back', 'quarterback', 'qb'):
         whatpos = 'qb'
+    if whatpos.lower() in ('wide receiver'):
+        whatpos = 'wr'   
     elif 'quarter' in whatpos.lower():
         whatpos = 'qb'
     elif whatpos.lower() == 'kicker':
         whatpos = 'k'
+    if whatpos.upper() not in positions:
+        return('position does not exist')    
     if whatpos in ('k', 'te', 'qb', 'd/st'):
         return('You should start '+ random.choice(nested_dict[playername][0][whatpos.upper()]) + '.')
     elif whatpos == 'flex':
@@ -66,6 +72,10 @@ def who_start(playername, whatpos):
                 break
         return('You should start ' + choice1 + ' and ' + choice2 + '.')
 
-#print(who_start('scott','doggystyle'))
+#print(who_start('scott','poop'))
+
+#print(nested_dict)
+
+
 
 
