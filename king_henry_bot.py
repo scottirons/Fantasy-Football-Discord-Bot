@@ -15,7 +15,7 @@ qbeez = ['qb', 'quarterback']
 winloss = ['win', 'lose', 'last', 'first']
 swears = ['fuck', 'shit', 'damn', 'hell', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura']
 ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',\
-            'JRog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
+            'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
 positions = ['k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',\
              'quarterback', 'd/st', 'def', 'defense', 'kicker', 'flex', 'te',\
              'tight end', 'wr', 'wide receiver']
