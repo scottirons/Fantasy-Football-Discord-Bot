@@ -75,20 +75,28 @@ async def on_message(message):
     if message.author == client.user:
         return
     message.content = message.content.lower()
-    if ('king henry') in message.content:
-        await message.channel.send("\U0001F451")
+
+    #kindness 
     if ('thank') in message.content:
         await message.channel.send("Ain't no thang, gurl")
+
+    #good bot bad bot
     if ('good bot') in message.content:
         await message.channel.send('You know it.')
     if ('bad bot') in message.content:
         await message.channel.send('no u')
+
+    #henry and king henry stuff
+    if ('king henry') in message.content:
+        await message.channel.send("\U0001F451")    
     elif ('henry henry henry') in message.content:
         await message.channel.send("KING KING KING!")
     elif ('king king king') in message.content:
         await message.channel.send("HENRY HENRY HENRY!")
     elif ('henry') in message.content:
         await message.channel.send("That's King Henry to you.")
+
+    #random stuff
     if ('kelce') in message.content:
         await message.channel.send("Ben, why didn't you draft me instead? \U0001F97A")
     if('fumble') in message.content:
