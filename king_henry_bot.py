@@ -64,8 +64,8 @@ async def starters(ctx):
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
 
-@client.command()
-async def choose(ctx):
+@client.command(name="8ball")
+async def _8ball(ctx):
     await ctx.send(random.choice(answers))
         
     
