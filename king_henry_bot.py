@@ -7,6 +7,7 @@ import random_player
 import starterpick
 from discord.ext import commands
 import asyncio
+import random
 
 
 questions = ['who', 'what', 'which']
@@ -64,7 +65,7 @@ async def starters(ctx):
         await ctx.send('TOO SLOW!')
 
 @client.command()
-async def _8ball(ctx):
+async def choose(ctx):
     await ctx.send(random.choice(answers))
         
     
