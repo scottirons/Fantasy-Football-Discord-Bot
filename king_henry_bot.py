@@ -64,7 +64,7 @@ async def starters(ctx):
         await ctx.send('TOO SLOW!')
 
 @client.command()
-async def 8ball(ctx)
+async def 8ball(ctx):
     await ctx.send(random.choice(answers))
         
     
