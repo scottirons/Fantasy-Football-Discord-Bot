@@ -110,7 +110,10 @@ async def on_message(message):
        and any(thing in message.content for thing in winloss):
         await message.channel.send(random_player.which_player())
     if any(word in message.content for word in swears):
-        await message.channel.send(file=discord.File('watchyourprofanity.gif'))
+        if message.channel.id is 883758150287757322:
+            return
+        else:            
+            await message.channel.send(file=discord.File('watchyourprofanity.gif'))
     if ('ass') in message.content:
         if len(message.content) == 3:
             await message.channel.send(file=discord.File('watchyourprofanity.gif'))
