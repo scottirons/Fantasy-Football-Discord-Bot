@@ -19,6 +19,9 @@ ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',\
 positions = ['k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',\
              'quarterback', 'd/st', 'def', 'defense', 'kicker', 'flex', 'te',\
              'tight end', 'wr', 'wide receiver']
+answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely", \
+           'sleep on it', 'it shall be done', 'my sources say no', 'nah', 'definitely',\
+           'most likely', 'probs', "I'm not confident in it", 'shabalabanono']
 
 
 client = commands.Bot(command_prefix=['!'])
@@ -59,6 +62,10 @@ async def starters(ctx):
         
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
+
+@client.command()
+async def 8ball(ctx)
+    await ctx.send(random.choice(answers))
         
     
 
