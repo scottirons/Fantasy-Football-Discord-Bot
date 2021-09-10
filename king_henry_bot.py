@@ -74,7 +74,7 @@ async def starters(ctx):
 async def _8ball(ctx):
     await ctx.send(random.choice(answers))
 
-@client.command(ctx)
+@client.command()
 async def boo(ctx):
     await ctx.send("BOOOOO " + ctx.content + " BOOOOOOOOO!")
         
