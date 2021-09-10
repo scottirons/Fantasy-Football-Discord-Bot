@@ -76,7 +76,7 @@ async def _8ball(ctx):
 
 @client.command()
 async def boo(ctx, *msg):
-    await ctx.send("BOOOOO " + ("{}".format(" ".join(msg))) + " BOOOOOOOOO!")
+    await ctx.send("BOOOOO " + (("{}".format(" ".join(msg))).upper()) + " BOOOOOOOOO!")
         
     
 
