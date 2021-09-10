@@ -22,7 +22,9 @@ positions = ['k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',\
              'tight end', 'wr', 'wide receiver']
 answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely", \
            'sleep on it', 'it shall be done', 'my sources say no', 'nah', 'definitely',\
-           'most likely', 'probs', "I'm not confident in it", 'shabalabanono']
+           'most likely', 'probs', "I'm not confident in it", 'shabalabanono', 'J riggity riggity'\
+           \'riggity riggity riggity rekt']
+]
 
 
 client = commands.Bot(command_prefix=['!'])
