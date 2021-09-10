@@ -75,8 +75,8 @@ async def _8ball(ctx):
     await ctx.send(random.choice(answers))
 
 @client.command()
-async def boo(ctx, msg):
-    await ctx.send("BOOOOO " + msg.content + " BOOOOOOOOO!")
+async def boo(ctx, *msg):
+    await ctx.send("BOOOOO " + ("{}".format(" ".join(msg))) + " BOOOOOOOOO!")
         
     
 
