@@ -24,7 +24,7 @@ answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely
            'sleep on it', 'it shall be done', 'my sources say no', 'nah', 'definitely',\
            'most likely', 'probs', "I'm not confident in it", 'shabalabanono', 'get J riggity riggity'\
            'riggity riggity riggity rekt']
-sup = ['hi', 'hello', 'hey', 'howdy']
+sup = ['hi ', 'hello', 'hey', 'howdy']
 friendly_answers = ['suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doodly, neighbor', 'hi', 'hello', 'heyyy \U0001F609',\
            'how u doin']
 byez = ['bye', 'good night', 'see you', 'toodles']
