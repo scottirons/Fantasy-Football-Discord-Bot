@@ -14,7 +14,7 @@ questions = ['who', 'what', 'which']
 rbeez = ['rb', 'running back', 'runningback']
 qbeez = ['qb', 'quarterback']
 winloss = ['win', 'lose', 'last', 'first']
-swears = ['fuck', 'shit', 'damn', 'hell', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura']
+swears = ['fuck', 'shit', 'damn', ' hell ', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura']
 ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',\
             'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
 positions = ['k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',\
@@ -24,6 +24,11 @@ answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely
            'sleep on it', 'it shall be done', 'my sources say no', 'nah', 'definitely',\
            'most likely', 'probs', "I'm not confident in it", 'shabalabanono', 'get J riggity riggity'\
            'riggity riggity riggity rekt']
+sup = ['hi', 'hello', 'hey', 'howdy']
+answers = ['suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doodly, neighbor', 'hi', 'hello', 'heyyy \U0001F609',\
+           'how u doin']
+byez = ['bye', 'good night', 'see you', 'toodles']
+bye = ['toodles', 'bye gurl', 'see ya later, alligator', 'in a while, crocodile', 'peace out, Boy Scout']
 
 
 client = commands.Bot(command_prefix=['!'])
@@ -80,6 +85,10 @@ async def on_message(message):
     #kindness 
     if ('thank') in message.content:
         await message.channel.send("Ain't no thang, gurl")
+    if any(word in message.content for word in sup):
+        await message.channel.send(random.choice(answers))
+    if any(word in message.content for word in byez):
+        await message.channel.send(random.choice(bye))
 
     #good bot bad bot
     if ('good bot') in message.content:
@@ -129,6 +138,12 @@ async def on_message(message):
         else:
             if len(message.content) == 3:
                 await message.channel.send(file=discord.File('watchyourprofanity.gif'))
+    if ('hell') in message.content:
+        if message.channel.id == 883758150287757322:
+            return
+        else:
+            if len(message.content) == 4:
+                await message.channel.send(file=discord.File('watchyourprofanity.gif'))                
     await client.process_commands(message)
     
 
