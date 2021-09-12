@@ -14,7 +14,7 @@ questions = ['who', 'what', 'which']
 rbeez = ['rb', 'running back', 'runningback']
 qbeez = ['qb', 'quarterback']
 winloss = ['win', 'lose', 'last', 'first']
-swears = ['fuck', 'shit', 'damn', ' hell ', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura']
+swears = ['fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura']
 ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',\
             'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
 positions = ['k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',\
@@ -145,13 +145,7 @@ async def on_message(message):
             return
         else:
             if len(message.content) == 3:
-                await message.channel.send(file=discord.File('watchyourprofanity.gif'))
-    if ('hell') in message.content:
-        if message.channel.id == 883758150287757322:
-            return
-        else:
-            if len(message.content) == 4:
-                await message.channel.send(file=discord.File('watchyourprofanity.gif'))                
+                await message.channel.send(file=discord.File('watchyourprofanity.gif'))               
     await client.process_commands(message)
     
 
