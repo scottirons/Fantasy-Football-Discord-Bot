@@ -80,7 +80,7 @@ async def boo(ctx, *msg):
 
 @client.command()
 async def shoulda(ctx, *msg):
-    await ctx.send("Damn, I should have started " + (("{}".format(" ".join(msg)))) + ".")
+    await ctx.send("Damn, I should have started " + (("{}".format(" ".join(msg.capitalize())))) + ".")
         
     
 
