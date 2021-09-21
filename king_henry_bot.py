@@ -126,6 +126,7 @@ async def on_message(message):
         await message.channel.send(text)
     if('trade') in message.content:
         await message.channel.send(file=discord.File('no trades.jpg'))
+        await message.channel.send("ok fine yes trades")
     if any(word in message.content for word in questions) \
        and any(thing in message.content for thing in qbeez):
         await message.channel.send(random_qb.which_qb())
