@@ -34,7 +34,7 @@ for team in league.teams:
 ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
 positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
-print(teams)
+#print(teams)
 # print(nested_dict['Scott'])
 #print(nested_dict)
 
