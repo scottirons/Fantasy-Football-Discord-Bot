@@ -8,7 +8,7 @@ import starterpick
 from discord.ext import commands
 import asyncio
 import random
-from injured_player import injury
+import injured_player
 
 
 questions = ['who', 'what', 'which']
@@ -77,9 +77,8 @@ async def _8ball(ctx):
 
 @client.command()
 async def injuries(ctx, name):
-
     name = name.title()
-    await ctx.send(injured_player.injuries(name))
+    await ctx.channel.send(injured_player.injuries(name))
 
 
 @client.command()

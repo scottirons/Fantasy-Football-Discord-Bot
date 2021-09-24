@@ -36,4 +36,4 @@ def injury(person):
 
        #     return(nested_dict[person][0]['OUT'])
 
-print(*injury('scott'), sep = '\n')
+#print(*injury('scott'), sep = '\n')
