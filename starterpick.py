@@ -72,7 +72,7 @@ def who_start(playername, whatpos):
                 break
         return('You should start ' + choice1 + ' and ' + choice2 + '.')
 
-#print(who_start('scott','rb'))
+#print(who_start('scott','qb'))
 
 #print(nested_dict)
 

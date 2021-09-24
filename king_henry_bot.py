@@ -8,6 +8,7 @@ import starterpick
 from discord.ext import commands
 import asyncio
 import random
+from injured_player import injury
 
 
 questions = ['who', 'what', 'which']
@@ -75,12 +76,18 @@ async def _8ball(ctx):
     await ctx.send(random.choice(answers))
 
 @client.command()
+async def injuries(ctx, name):
+    name = name.title()
+    await ctx.send(injured_player.injuries(name))
+
+
+@client.command()
 async def boo(ctx, *msg):
     await ctx.send("BOOOOO " + (("{}".format(" ".join(msg))).upper()) + " BOOOOOOOOO!")
 
 @client.command()
 async def shoulda(ctx, *msg):
-    await ctx.send("Damn, I should have started " + ((("{}".format(" ".join(msg)))).capitalize()) + ".")
+    await ctx.send("Damn, I should have started " + ((("{}".format(" ".join(msg)))).title()) + ".")
 
     
 
