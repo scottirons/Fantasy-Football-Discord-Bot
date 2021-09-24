@@ -2,7 +2,7 @@ from injuries import injured_dict
 
 def injury(person):
     nested_dict = injured_dict()  # create the dictionary i think
-    print(nested_dict['Scott'][0])
+    print(nested_dict['Robert'][0])
     person = person.title()
     if person not in nested_dict:
         return('name does not exist')
@@ -19,7 +19,7 @@ def injury(person):
         try:
             questionable += (nested_dict[person][0]['QUESTIONABLE'])
         except:
-            counter += 69
+            counter += 1
         try:
             injured += (nested_dict[person][0]['OUT'])
         except:
@@ -27,7 +27,7 @@ def injury(person):
         try:
             injured += (nested_dict[person][0]['INJURY_RESERVE'])
         except:
-            counter += 13
+            counter += 1
 
         if injured == [] and questionable == [] and doubtful == []: # H
             thing = (['Wow, your whole team is healthy!'])
@@ -60,7 +60,7 @@ def injury(person):
         elif doubtful == []:
             thing = (['The following players are questionable:'] + questionable + # B
                      ['and the following players are injured:'] + injured)
-            thing = '\n'.format(thing)
+            thing = '\n'.join(thing)
             return(thing)
         else:
             thing = (['The following players are questionable:'] + questionable + # A
@@ -70,5 +70,4 @@ def injury(person):
             return(thing)
 
        #     return(nested_dict[person][0]['OUT'])
-
-# print(injury('liam'))
+print(injury('Robert'))
