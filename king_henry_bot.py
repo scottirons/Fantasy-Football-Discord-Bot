@@ -76,9 +76,9 @@ async def _8ball(ctx):
     await ctx.send(random.choice(answers))
 
 @client.command()
-async def injury(ctx, name):
+async def injuries(ctx, name):
     name = name.title()
-    await ctx.channel.send(injured_player.injuries(name))
+    await ctx.channel.send(injured_player.injury(name))
 
 
 @client.command()
