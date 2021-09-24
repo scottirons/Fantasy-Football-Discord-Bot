@@ -2,7 +2,7 @@ from injuries import injured_dict
 
 def injury(person):
     nested_dict = injured_dict()  # create the dictionary i think
-    print(nested_dict['Robert'][0])
+#    print(nested_dict['Robert'][0])
     person = person.title()
     if person not in nested_dict:
         return('name does not exist')
