@@ -10,6 +10,7 @@ league = League(league_id=41302936, year=2021, espn_s2='AEBZs%2F0JhLRPJvsLxD28Ba
 #print(league.teams)
 nested_dict= {}
 teams = []
+
 for team in league.teams:
     teams.append(team.team_name)
 #print(teams)
@@ -33,7 +34,8 @@ for team in league.teams:
 ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
 positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
-
+print(teams)
+# print(nested_dict['Scott'])
 #print(nested_dict)
 
 
