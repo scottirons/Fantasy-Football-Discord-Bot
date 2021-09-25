@@ -9,6 +9,7 @@ from discord.ext import commands
 import asyncio
 import random
 import injured_player
+import flex_squads
 
 
 questions = ['who', 'what', 'which']
@@ -65,8 +66,11 @@ async def starters(ctx):
                                "You get one more try." )
                 position = await client.wait_for('message', check=lambda \
                     message: message.author == ctx.author, timeout=10)
-                position = position.content            
-            await ctx.channel.send(starterpick.who_start(msg,position))
+                position = position.content
+            if position.lower() == 'flex':
+                await ctx.channel.send(flex_squads.pick_flex(msg))
+            else:
+                await ctx.channel.send(starterpick.who_start(msg,position))
         
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
