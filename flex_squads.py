@@ -71,7 +71,7 @@ def pick_flex(name):
     name = name.title()
     return('You should start ' + random.choice(flex_squads[name]) + '.')
 
-print(pick_flex('scott'))
+# print(pick_flex('scott'))
 # print(flex_squads)
 
 #print(random.choice(flex_squads['Scott']))
