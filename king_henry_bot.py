@@ -169,7 +169,7 @@ async def on_message(message):
 
 
 
-#client.run(os.environ['DISCORD_TOKEN'])
+client.run(os.environ['DISCORD_TOKEN'])
 
 
 
