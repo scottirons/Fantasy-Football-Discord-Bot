@@ -70,7 +70,7 @@ def average_points(name):
             counter += 1
     if average_points == []:
         return('Sorry, either the name is spelled incorrectly or the player does not exist or the player is not on ' +
-               'a current roster')
+               'a current roster.')
 
 if __name__ == "__main__":
     print(average_points('derrick henry'))
