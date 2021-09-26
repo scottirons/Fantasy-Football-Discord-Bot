@@ -10,6 +10,7 @@ import asyncio
 import random
 import injured_player
 import flex_squads
+import stats_pull
 
 
 questions = ['who', 'what', 'which']
@@ -93,6 +94,11 @@ async def boo(ctx, *msg):
 async def shoulda(ctx, *msg):
     await ctx.send("Damn, I should have started " + ((("{}".format(" ".join(msg)))).title()) + ".")
 
+@client.command()
+async def points(ctx, *msg):
+    name = ("{}".format(" ".join(msg)))
+    await ctx.send(stats_pull.average_points(name))
+
     
 
 @client.event
@@ -163,7 +169,8 @@ async def on_message(message):
 
 
 
-client.run(os.environ['DISCORD_TOKEN'])
+#client.run(os.environ['DISCORD_TOKEN'])
+
 
 
 
