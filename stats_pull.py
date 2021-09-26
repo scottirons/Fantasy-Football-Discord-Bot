@@ -70,5 +70,6 @@ def average_points(name):
             counter += 1
     if average_points == []:
         return('bleh')
+
 if __name__ == "__main__":
     print(average_points('derrick henry'))
