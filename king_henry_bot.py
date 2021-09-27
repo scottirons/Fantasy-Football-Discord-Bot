@@ -99,6 +99,11 @@ async def points(ctx, *msg):
     name = ("{}".format(" ".join(msg)))
     await ctx.send(stats_pull.average_points(name))
 
+@client.command()
+async def chevy(ctx, *msg):
+    msg = ("{}".format(" ".join(msg)))
+    await ctx.send(msg)
+
     
 
 @client.event
