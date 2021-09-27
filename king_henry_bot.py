@@ -104,7 +104,9 @@ async def chevy(ctx, *msg):
     msg = ("{}".format(" ".join(msg)))
     await ctx.send(msg)
 
-    
+@client.command()
+async def trade(ctx):
+    await ctx.send('hi')
 
 @client.event
 async def on_message(message):
@@ -146,9 +148,9 @@ async def on_message(message):
     if('veto') in message.content:
         text = spongemock.sponge(message.content)
         await message.channel.send(text)
-    if('trade') in message.content:
-        await message.channel.send(file=discord.File('no trades.jpg'))
-        await message.channel.send("ok fine yes trades")
+#    if('trade') in message.content:
+#        await message.channel.send(file=discord.File('no trades.jpg'))
+#        await message.channel.send("ok fine yes trades")
     if any(word in message.content for word in questions) \
        and any(thing in message.content for thing in qbeez):
         await message.channel.send(random_qb.which_qb())
