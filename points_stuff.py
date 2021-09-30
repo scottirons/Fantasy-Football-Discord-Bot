@@ -35,7 +35,7 @@ def points(player):
     points_against = round(points_against, 2)
     listie.append('Points against: ' + str(points_against))
     average_against = points_against/week
-    average_against = round(average_points, 2)
+    average_against = round(average_against, 2)
     listie.append('Average against: ' + str(average_against))
     differential = total_points - points_against
     differential = round(differential, 2)
