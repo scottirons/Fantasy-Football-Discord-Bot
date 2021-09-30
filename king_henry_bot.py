@@ -101,7 +101,7 @@ async def points(ctx, *msg):
     await ctx.send(stats_pull.average_points(name))
 
 @client.command()
-async def power():
+async def power(ctx):
     await ctx.send(power_rankings.stonks())
 
 @client.command()
