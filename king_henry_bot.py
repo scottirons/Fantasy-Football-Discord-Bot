@@ -11,6 +11,7 @@ import random
 import injured_player
 import flex_squads
 import stats_pull
+import power_rankings
 
 
 questions = ['who', 'what', 'which']
@@ -98,6 +99,10 @@ async def shoulda(ctx, *msg):
 async def points(ctx, *msg):
     name = ("{}".format(" ".join(msg)))
     await ctx.send(stats_pull.average_points(name))
+
+@client.command()
+async def power():
+    await ctx.send(power_rankings.stonks())
 
 @client.command()
 async def chevy(ctx, *msg):
