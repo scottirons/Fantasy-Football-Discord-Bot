@@ -12,6 +12,7 @@ import injured_player
 import flex_squads
 import stats_pull
 import power_rankings
+import points_stuff
 
 
 questions = ['who', 'what', 'which']
@@ -103,6 +104,11 @@ async def points(ctx, *msg):
 @client.command()
 async def power(ctx):
     await ctx.send(power_rankings.stonks())
+
+@client.command()
+async def scoring(ctx, name):
+    name = name.title()
+    await ctx.send(points_stuff.points(name))
 
 @client.command()
 async def chevy(ctx, *msg):
