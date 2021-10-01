@@ -43,7 +43,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
 
-@client.command(brief = "not sure who to start? ask the bot and make your own dumb decision anyways")
+@client.command(brief = "not sure who to start? ask the bot and decide yourself anyways")
 async def starters(ctx):
 
     try:        
@@ -92,7 +92,7 @@ async def injuries(ctx, name):
 async def boo(ctx, *msg):
     await ctx.send("BOOOOO " + (("{}".format(" ".join(msg))).upper()) + " BOOOOOOOOO!")
 
-@client.command(brief = "made a doodoo dunderhead move? type !shoulda and the player you shoulda started")
+@client.command(brief = "made a doodoo dunderhead move? type the player's name ")
 async def shoulda(ctx, *msg):
     await ctx.send("Damn, I should have started " + ((("{}".format(" ".join(msg)))).title()) + ".")
 
