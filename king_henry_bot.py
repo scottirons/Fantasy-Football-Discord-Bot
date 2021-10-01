@@ -43,7 +43,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
 
-@client.command()
+@client.command(brief = "not sure who to start? ask the bot and make your own dumb decision anyways")
 async def starters(ctx):
 
     try:        
@@ -78,44 +78,44 @@ async def starters(ctx):
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
 
-@client.command(name="8ball")
+@client.command(name="8ball", brief = "da bot knows everything")
 async def _8ball(ctx):
     await ctx.send(random.choice(answers))
 
-@client.command()
+@client.command(brief = "use this to laugh at Brendan's injured-ass roster lol")
 async def injuries(ctx, name):
     name = name.title()
     await ctx.channel.send(injured_player.injury(name))
 
 
-@client.command()
+@client.command(brief = "BOOOOOOOOO DESCRIPTIONS BOOOOOO")
 async def boo(ctx, *msg):
     await ctx.send("BOOOOO " + (("{}".format(" ".join(msg))).upper()) + " BOOOOOOOOO!")
 
-@client.command()
+@client.command(brief = "made a doodoo dunderhead move? type !shoulda and the player you shoulda started")
 async def shoulda(ctx, *msg):
     await ctx.send("Damn, I should have started " + ((("{}".format(" ".join(msg)))).title()) + ".")
 
-@client.command()
+@client.command(brief = "type a player's name and see his average points. wow :)")
 async def points(ctx, *msg):
     name = ("{}".format(" ".join(msg)))
     await ctx.send(stats_pull.average_points(name))
 
-@client.command()
+@client.command(brief = "power rankings aka who's close to Arvin")
 async def power(ctx):
     await ctx.send(power_rankings.stonks())
 
-@client.command()
+@client.command(brief = "gives you average points 'n' stuff")
 async def scoring(ctx, name):
     name = name.title()
     await ctx.send(points_stuff.points(name))
 
-@client.command()
+@client.command(brief = 'just repeats your message lol')
 async def chevy(ctx, *msg):
     msg = ("{}".format(" ".join(msg)))
     await ctx.send(msg)
 
-@client.command()
+@client.command(brief = "ok this one will take work")
 async def trade(ctx):
     await ctx.send('hi')
 
