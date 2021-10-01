@@ -1,0 +1,8 @@
+Ideas: make classes instead of just giant functions
+the league instance can be a "class variable" ?
+
+Could this help limit the amount of crap I have to type? Can I do a nested dict class?
+
+Do I even need to do nested dicts?
+
+I really like this keyboard :)
