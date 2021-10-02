@@ -67,33 +67,38 @@ def max_points(name, week):
         elif player.position == 'TE':
             if player.points > max_score_dict['TE']:
                 max_score_dict['TE'] = player.points
-                not_again.append(player.name)
+                homie1 = player.name
         elif player.position == 'RB':
             if player.points > max_score_dict['RB1']:
                 max_score_dict['RB1'] = player.points
-                not_again.append(player.name)
+                homie2 = player.name
         elif player.position == 'WR':
             if player.points > max_score_dict['WR1']:
                 max_score_dict['WR1'] = player.points
-                not_again.append(player.name)
+                homie3 = player.name
+    not_again.append(homie1)
+    not_again.append(homie2)
+    not_again.append(homie3)
     for player in roster:
-        if player.position == 'RB':
-            if player.name not in not_again:
-                if player.points > max_score_dict['RB2']:
-                    max_score_dict['RB2'] = player.points
-                    not_again.append(player.name)
+        if player.name in not_again:
+            continue
+        elif player.position == 'RB':
+            if player.points > max_score_dict['RB2']:
+                max_score_dict['RB2'] = player.points
+                homie4 = player.name
         if player.position == 'WR':
             if player.name not in not_again:
                 if player.points > max_score_dict['WR2']:
                     max_score_dict['WR2'] = player.points
-                    not_again.append(player.name)
+                    homie5 = player.name
+    not_again.append(homie4)
+    not_again.append(homie5)
     for player in roster:
         if player.position in ['WR', 'TE', 'RB']:
-            if player.name in not_again:
-                continue
-            elif player.points > max_score_dict['FLEX']:
-                max_score_dict['FLEX'] = player.points
-
+            if player.name not in not_again:
+                if player.points > max_score_dict['FLEX']:
+                    max_score_dict['FLEX'] = player.points
+    print(max_score_dict)
     max_score = round((sum(max_score_dict.values())), 2)
     difference = round((max_score - points), 2)
     return "In week " + str(week) + " you scored " + str(points) + " points.\n"\
@@ -102,4 +107,4 @@ def max_points(name, week):
 
 
 if __name__ == "__main__":
-        print(max_points('scott', 3))
+        print(max_points('ben', 3))
