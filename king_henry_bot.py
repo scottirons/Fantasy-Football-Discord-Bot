@@ -13,6 +13,7 @@ import flex_squads
 import stats_pull
 import power_rankings
 import points_stuff
+import you_fucked_up
 
 
 questions = ['who', 'what', 'which']
@@ -42,6 +43,36 @@ client = commands.Bot(command_prefix=['!'])
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
+@client.command(brief = "how many more points could you have scored?")
+async def goober(ctx):
+    try:
+        await ctx.send("What's your name?")
+        msg = await client.wait_for('message', check=lambda \
+            message: message.author == ctx.author, timeout=10)
+        if msg:
+            msg = msg.content
+            if msg.capitalize() not in ournames:
+                await ctx.send("I'm sorry, I don't recognize that name. "
+                               "You get one more try.")
+                msg = await client.wait_for('message', check=lambda \
+                        message: message.author == ctx.author, timeout=10)
+                msg = msg.content
+            await ctx.send("What week? Please enter a number.")
+            week = await client.wait_for('message', check=lambda \
+                    message: message.author == ctx.author, timeout=10)
+        if week:
+            week = week.content
+            if len(week) > 2:
+                await ctx.send("Wait a second, did you enter a number? \
+                please try again!")
+                week = await client.wait_for('message', check=lambda \
+                        message: message.author == ctx.author, timeout=10)
+                week = week.content
+            week = int(week)
+            await ctx.channel.send(you_fucked_up.max_points(msg, week))
+
+    except asyncio.TimeoutError:
+        await ctx.send('TOO SLOW!')
 
 @client.command(brief = "not sure who to start? ask the bot and decide yourself anyways")
 async def starters(ctx):
