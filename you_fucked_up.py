@@ -51,7 +51,7 @@ def get_gameday_roster(team, week):
 def max_points(name, week):
     team = get_team(name)
     roster = get_gameday_roster(team, week)[0]
-    points = get_gameday_roster(team, week)[1]
+    points = round(get_gameday_roster(team, week)[1], 2)
     max_score_dict = {'QB': 0, 'RB1': 0, 'RB2': 0, 'WR1': 0, 'WR2': 0, 'FLEX': 0, 'TE': 0, 'K': 0, 'DEF': 0}
     not_again = []
     for player in roster:
@@ -94,7 +94,7 @@ def max_points(name, week):
             elif player.points > max_score_dict['FLEX']:
                 max_score_dict['FLEX'] = player.points
 
-    max_score = sum(max_score_dict.values())
+    max_score = round((sum(max_score_dict.values())), 2)
     difference = round((max_score - points), 2)
     return "In week " + str(week) + " you scored " + str(points) + " points.\n"\
             "You could have scored " + str(max_score) + " points.\n"\
