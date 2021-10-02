@@ -63,8 +63,8 @@ async def goober(ctx):
         if week:
             week = week.content
             if len(week) > 2:
-                await ctx.send("Wait a second, did you enter a number? \
-                please try again!")
+                await ctx.send("Wait a second, did you enter a number?" \
+                " Please try again!")
                 week = await client.wait_for('message', check=lambda \
                         message: message.author == ctx.author, timeout=10)
                 week = week.content
