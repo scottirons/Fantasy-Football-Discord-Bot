@@ -65,7 +65,7 @@ def average_points(name):
     for player in dict:
         try:
             average_points = (((dict[player][0][name]).pop())/week)
-            return('' + name.title() + " averages " + str(average_points) + " points.")
+            return('' + name.title() + " averages " + str(round((average_points), 2)) + " points.")
         except:
             counter += 1
     if average_points == []:

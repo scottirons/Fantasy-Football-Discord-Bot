@@ -130,7 +130,7 @@ async def shoulda(ctx, *msg):
 @client.command(brief="type a player's name and see his average points. wow :)")
 async def points(ctx, *msg):
     name = ("{}".format(" ".join(msg)))
-    await ctx.send(round((stats_pull.average_points(name)),2))
+    await ctx.send((stats_pull.average_points(name)))
 
 @client.command(brief = "power rankings aka who's close to Arvin")
 async def power(ctx):
