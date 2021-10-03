@@ -21,18 +21,18 @@ rbeez = ['rb', 'running back', 'runningback']
 qbeez = ['qb', 'quarterback']
 winloss = ['win', 'lose', 'last', 'first']
 swears = ['fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura']
-ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',\
+ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',
             'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
-positions = ['k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',\
-             'quarterback', 'd/st', 'def', 'defense', 'kicker', 'flex', 'te',\
+positions = ['k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',
+             'quarterback', 'd/st', 'def', 'defense', 'kicker', 'flex', 'te',
              'tight end', 'wr', 'wide receiver']
-answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely", \
-           'sleep on it', 'it shall be done', 'my sources say no', 'nah', 'definitely',\
-           'most likely', 'probs', "I'm not confident in it", 'shabalabanono', 'get J riggity riggity'\
+answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely",
+           'sleep on it', 'it shall be done', 'my sources say no', 'nah', 'definitely',
+           'most likely', 'probs', "I'm not confident in it", 'shabalabanono', 'get J riggity riggity'
            ' riggity riggity riggity rekt']
 sup = ['hi ', 'hello', 'howdy']
-friendly_answers = ['suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doodly, neighbor', 'hi', 'hello', 'heyyy \U0001F609',\
-           'how u doin']
+friendly_answers = ['suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doodly, neighbor', 'hi', 'hello',
+                    'heyyy \U0001F609', 'how u doin']
 byez = ['bye', 'good night', 'see you', 'toodles']
 bye = ['toodles', 'bye gurl', 'see ya later, alligator', 'in a while, crocodile', 'peace out, Boy Scout']
 
@@ -43,28 +43,28 @@ client = commands.Bot(command_prefix=['!'])
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-@client.command(brief = "how many more points could you have scored?")
+@client.command(brief="how many more points could you have scored?")
 async def goober(ctx):
     try:
         await ctx.send("What's your name?")
-        msg = await client.wait_for('message', check=lambda \
+        msg = await client.wait_for('message', check=lambda
             message: message.author == ctx.author, timeout=10)
         if msg:
             msg = msg.content
             if msg.capitalize() not in ournames:
                 await ctx.send("I'm sorry, I don't recognize that name. "
                                "You get one more try.")
-                msg = await client.wait_for('message', check=lambda \
+                msg = await client.wait_for('message', check=lambda
                         message: message.author == ctx.author, timeout=10)
                 msg = msg.content
             await ctx.send("What week? Please enter a number.")
-            week = await client.wait_for('message', check=lambda \
+            week = await client.wait_for('message', check=lambda
                     message: message.author == ctx.author, timeout=10)
         if week:
             week = week.content
             if len(week) > 2:
-                await ctx.send("Wait a second, did you enter a number?" \
-                " Please try again!")
+                await ctx.send("Wait a second, did you enter a number?" 
+                               " Please try again!")
                 week = await client.wait_for('message', check=lambda \
                         message: message.author == ctx.author, timeout=10)
                 week = week.content
@@ -74,7 +74,7 @@ async def goober(ctx):
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
 
-@client.command(brief = "not sure who to start? ask the bot and decide yourself anyways")
+@client.command(brief="not sure who to start? ask the bot and decide yourself anyways")
 async def starters(ctx):
 
     try:        
@@ -96,7 +96,7 @@ async def starters(ctx):
         if position:
             position = position.content
             if position not in positions:
-                await ctx.send("I'm sorry, I don't recognize that position. "\
+                await ctx.send("I'm sorry, I don't recognize that position. "
                                "You get one more try." )
                 position = await client.wait_for('message', check=lambda \
                     message: message.author == ctx.author, timeout=10)
@@ -109,28 +109,28 @@ async def starters(ctx):
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
 
-@client.command(name="8ball", brief = "da bot knows everything")
+@client.command(name="8ball", brief="da bot knows everything")
 async def _8ball(ctx):
     await ctx.send(random.choice(answers))
 
-@client.command(brief = "use this to laugh at Brendan's injured-ass roster lol")
+@client.command(brief="use this to laugh at Brendan's injured-ass roster lol")
 async def injuries(ctx, name):
     name = name.title()
     await ctx.channel.send(injured_player.injury(name))
 
 
-@client.command(brief = "BOOOOOOOOO DESCRIPTIONS BOOOOOO")
+@client.command(brief="BOOOOOOO DESCRIPTIONS BOOOOOOOOOO")
 async def boo(ctx, *msg):
     await ctx.send("BOOOOO " + (("{}".format(" ".join(msg))).upper()) + " BOOOOOOOOO!")
 
-@client.command(brief = "made a doodoo dunderhead move? type the player's name ")
+@client.command(brief="made a doodoo dunderhead move? type the player's name ")
 async def shoulda(ctx, *msg):
-    await ctx.send("Damn, I should have started " + ((("{}".format(" ".join(msg)))).title()) + ".")
+    await ctx.send("Damn, I should have started " + ((("{}".format(" ".join(msg))).title()) + "."))
 
-@client.command(brief = "type a player's name and see his average points. wow :)")
+@client.command(brief="type a player's name and see his average points. wow :)")
 async def points(ctx, *msg):
     name = ("{}".format(" ".join(msg)))
-    await ctx.send(stats_pull.average_points(name))
+    await ctx.send(round((stats_pull.average_points(name)),2))
 
 @client.command(brief = "power rankings aka who's close to Arvin")
 async def power(ctx):
