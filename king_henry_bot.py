@@ -74,7 +74,7 @@ async def goober(ctx):
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
 
-@client.command(brief="not sure who to start? ask the bot and decide yourself anyways")
+@client.command(brief="DONT LISTEN TO THE BOT. START MATTISON, DOO DOO DUNDERHEAD")
 async def starters(ctx):
 
     try:        
@@ -113,7 +113,7 @@ async def starters(ctx):
 async def _8ball(ctx):
     await ctx.send(random.choice(answers))
 
-@client.command(brief="use this to laugh at Brendan's injured-ass roster lol")
+@client.command(brief="stop typing '!injuries jon' u jerks")
 async def injuries(ctx, name):
     name = name.title()
     await ctx.channel.send(injured_player.injury(name))
