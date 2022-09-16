@@ -10,7 +10,7 @@ league = League(league_id=41302936, year=2022, espn_s2='AEBZs%2F0JhLRPJvsLxD28Ba
                 'F5%2BANM5Es9oNA8MI0Wz9a8Wt', swid='{F713A680-D381-43C3-93A6-80D38113C33C}')
 
 teams = league.teams
-ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'Jrog', 'Ethan', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
+ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'Jrog', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared', 'Ethan']
 #print(teams[0])
 
 def points(player):
