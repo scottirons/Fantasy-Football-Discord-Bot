@@ -9,8 +9,9 @@ league = League(league_id=41302936, year=2022, espn_s2='AEBZs%2F0JhLRPJvsLxD28Ba
 
 teams = league.teams
 
+
 id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Brendan', 4: 'Ben', 5: 'Patrick', 6: 'Jrog',
-                   12: 'Ethan', 7: 'Robert', 8: 'Nathaniel', 9: 'Jon', 10: 'Nick', 11: 'Jared'}
+                   13: 'Ethan', 8: 'Robert', 9: 'Nathaniel', 10: 'Jon', 11: 'Nick', 12: 'Jared'}
 def get_key(val):
     for key, value in id_and_name.items():
         if val == value:
@@ -20,7 +21,6 @@ def get_key(val):
 
 def get_team(name):
     name = name.title()
-    print(teams)
     id = get_key(name)
     for team in teams:
         if team.team_id == id:
@@ -109,4 +109,4 @@ def max_points(name, week):
 
 
 if __name__ == "__main__":
-    print(max_points('ethan', 1))
+    print(max_points('jon', 1))
