@@ -16,25 +16,25 @@ import points_stuff
 import you_fucked_up
 
 
-questions = ['who', 'what', 'which']
-rbeez = ['rb', 'running back', 'runningback']
-qbeez = ['qb', 'quarterback']
-winloss = ['win', 'lose', 'last', 'first']
-swears = ['fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura']
-ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',
-            'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
-positions = ['k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',
+questions = {'who', 'what', 'which'}
+rbeez = {'rb', 'running back', 'runningback'}
+qbeez = {'qb', 'quarterback'}
+winloss = {'win', 'lose', 'last', 'first'}
+ournames = {'Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',
+            'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared'}
+positions = {'k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',
              'quarterback', 'd/st', 'def', 'defense', 'kicker', 'flex', 'te',
-             'tight end', 'wr', 'wide receiver']
+             'tight end', 'wr', 'wide receiver'}
 answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely",
            'sleep on it', 'it shall be done', 'my sources say no', 'nah', 'definitely',
            'most likely', 'probs', "I'm not confident in it", 'shabalabanono', 'get J riggity riggity'
            ' riggity riggity riggity rekt']
-sup = ['hi ', 'hello', 'howdy']
-friendly_answers = ['suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doodly, neighbor', 'hi', 'hello',
-                    'heyyy \U0001F609', 'how u doin']
-byez = ['bye', 'good night', 'see you', 'toodles']
-bye = ['toodles', 'bye gurl', 'see ya later, alligator', 'in a while, crocodile', 'peace out, Boy Scout']
+sup = {'hi ', 'hello', 'howdy'}
+friendly_answers = {'suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doodly, neighbor', 'hi', 'hello',
+                    'heyyy \U0001F609', 'how u doin'}
+byez = {'bye', 'good night', 'see you', 'toodles'}
+bye = {'toodles', 'bye gurl', 'see ya later, alligator', 'in a while, crocodile', 'peace out, Boy Scout'}
+swears = {'fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura'}
 
 
 client = commands.Bot(command_prefix=['!'])
@@ -48,14 +48,14 @@ async def goober(ctx):
     try:
         await ctx.send("What's your name?")
         msg = await client.wait_for('message', check=lambda
-            message: message.author == ctx.author, timeout=10)
+                                    message: message.author == ctx.author, timeout=10)
         if msg:
             msg = msg.content
             if msg.capitalize() not in ournames:
                 await ctx.send("I'm sorry, I don't recognize that name. "
                                "You get one more try.")
                 msg = await client.wait_for('message', check=lambda
-                        message: message.author == ctx.author, timeout=10)
+                                            message: message.author == ctx.author, timeout=10)
                 msg = msg.content
             await ctx.send("What week? Please enter a number.")
             week = await client.wait_for('message', check=lambda
@@ -214,12 +214,7 @@ async def on_message(message):
             if len(message.content) == 3:
                 await message.channel.send(file=discord.File('watchyourprofanity.gif'))               
     await client.process_commands(message)
-    
-
 
 
 client.run(os.environ['DISCORD_TOKEN'])
-
-
-
 

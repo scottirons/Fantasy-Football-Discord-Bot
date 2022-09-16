@@ -1,7 +1,7 @@
 from espn_api.football import League
 
 
-league = League(league_id=41302936, year=2021, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh'\
+league = League(league_id=41302936, year=2022, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh'\
                     'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G%2F2zGVo%2BKM0YtL1At'\
                     'pcN2ZiLNyhIMeCr7BvYd056vhbRRX3nwd%2Fxq23R9w7bwyDhyIH5sMxVBOur690YldBTTCLJZjbHk'\
                     'rUg0tA6kcD3wtCiP8CICrQmezMZBSpu6dad61FwoAIJSNo2NqexL5627uGt%2BXX9f9SFK6EcqNk2z7'\
@@ -10,7 +10,7 @@ league = League(league_id=41302936, year=2021, espn_s2='AEBZs%2F0JhLRPJvsLxD28Ba
 teams = league.teams
 
 id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Brendan', 4: 'Ben', 5: 'Patrick', 6: 'Jrog',
-                   7: 'Scott', 8: 'Robert', 9: 'Nathaniel', 10: 'Jon', 11: 'Nick', 12: 'Jared'}
+                   12: 'Ethan', 7: 'Robert', 8: 'Nathaniel', 9: 'Jon', 10: 'Nick', 11: 'Jared'}
 def get_key(val):
     for key, value in id_and_name.items():
         if val == value:
@@ -20,6 +20,7 @@ def get_key(val):
 
 def get_team(name):
     name = name.title()
+    print(teams)
     id = get_key(name)
     for team in teams:
         if team.team_id == id:
@@ -31,6 +32,7 @@ def get_team(name):
 def get_gameday_roster(team, week):
     '''gets the correct team within box_score class'''
     box_scores = league.box_scores(week)
+    current_roster, current_points = None, None
     for i in range(len(box_scores)):
         if box_scores[i].away_team == team:
             current_roster = box_scores[i].away_lineup
@@ -107,4 +109,4 @@ def max_points(name, week):
 
 
 if __name__ == "__main__":
-        print(max_points('scott', 1))
+    print(max_points('ethan', 1))
