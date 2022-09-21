@@ -169,7 +169,7 @@ async def on_message(message):
     message.content = message.content.lower()
 
     # kindness
-    if ('thank') in message.content:
+    if 'thank' in message.content:
         await message.channel.send("Ain't no thang, gurl")
     if any(word in message.content for word in sup):
         await message.channel.send(random.choice(friendly_answers))
@@ -177,13 +177,13 @@ async def on_message(message):
         await message.channel.send(random.choice(bye))
 
     # good bot bad bot
-    if ('good bot') in message.content:
+    if 'good bot' in message.content:
         await message.channel.send('You know it.')
-    if ('bad bot') in message.content:
+    if 'bad bot' in message.content:
         await message.channel.send('no u')
 
     # henry and king henry stuff
-    if ('king henry') in message.content:
+    if 'king henry' in message.content:
         await message.channel.send("\U0001F451")
     elif ('henry henry henry') in message.content:
         await message.channel.send("KING KING KING!")
