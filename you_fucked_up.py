@@ -105,4 +105,4 @@ def max_points(name, week):
 
 
 if __name__ == "__main__":
-    print(max_points('jon', 1))
+    print(max_points('ethan', 1))
