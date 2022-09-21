@@ -32,10 +32,10 @@ answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely
            'most likely', 'probs', "I'm not confident in it", 'shabalabanono', 'get J riggity riggity'
                                                                                ' riggity riggity riggity rekt']
 sup = {'hi ', 'hello', 'howdy'}
-friendly_answers = {'suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doodly, neighbor', 'hi', 'hello',
-                    'heyyy \U0001F609', 'how u doin'}
+friendly_answers = ['suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doodly, neighbor', 'hi', 'hello',
+                    'heyyy \U0001F609', 'how u doin']
 byez = {'bye', 'good night', 'see you', 'toodles'}
-bye = {'toodles', 'bye gurl', 'see ya later, alligator', 'in a while, crocodile', 'peace out, Boy Scout'}
+bye = ['toodles', 'bye gurl', 'see ya later, alligator', 'in a while, crocodile', 'peace out, Boy Scout']
 swears = {'fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura'}
 
 client = commands.Bot(command_prefix=['!'])
