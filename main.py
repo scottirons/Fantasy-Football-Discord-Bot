@@ -1,9 +1,6 @@
 import discord
 import os
 import spongemock
-import random_qb
-import random_rb
-import random_player
 import starterpick
 from discord.ext import commands
 import asyncio
