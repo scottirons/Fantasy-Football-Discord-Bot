@@ -51,6 +51,7 @@ def max_points(name, week):
     points = round(get_gameday_roster(team, week)[1], 2)
     max_score_dict = {'QB': 0, 'RB1': 0, 'RB2': 0, 'WR1': 0, 'WR2': 0, 'FLEX': 0, 'TE': 0, 'K': 0, 'DEF': 0}
     positions = defaultdict(list)
+
     for player in roster:
         positions[player.position].append(-player.points)
 
