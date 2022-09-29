@@ -2,10 +2,10 @@ from injuries import injured_dict
 
 def injury(person):
     nested_dict = injured_dict()  # create the dictionary i think
-#    print(nested_dict['Robert'][0])
+
     person = person.title()
     if person not in nested_dict:
-        return('name does not exist')
+        return 'name does not exist'
     else:
 
         injured = []
@@ -69,5 +69,6 @@ def injury(person):
             thing = '\n'.join(thing)
             return(thing)
 
-       #     return(nested_dict[person][0]['OUT'])
-#print(injury('Robert'))
+
+if __name__ == "__main__":
+    print(injury('jon'))
