@@ -13,11 +13,6 @@ import points_stuff
 import you_fucked_up
 
 
-class Robot:
-    def __init__(self):
-        pass
-
-
 questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
 qbeez = {'qb', 'quarterback'}
@@ -37,6 +32,19 @@ friendly_answers = ['suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doo
 byez = {'bye', 'good night', 'see you', 'toodles'}
 bye = ['toodles', 'bye gurl', 'see ya later, alligator', 'in a while, crocodile', 'peace out, Boy Scout']
 swears = {'fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura'}
+
+
+# class Robot(commands.Bot):
+#     def __init__(self):
+#         super().__init__(command_prefix="!")
+#
+#         @self.command(name='test')
+#         async def custom_command(ctx):
+#             print("Hello world !")
+#
+#     async def on_ready(self):
+#         print(f"Bot {self.user.display_name} is connected to server.")
+
 
 client = commands.Bot(command_prefix=['!'])
 
