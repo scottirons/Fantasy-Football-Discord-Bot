@@ -207,7 +207,7 @@ async def on_message(message):
         await message.channel.send(file=discord.File('zeke.jpg'))
     # if('qb') in message.content:
     #     await message.channel.send(file=discord.File('manningface.jpg'))
-    if ('veto') in message.content:
+    if 'veto' in message.content:
         text = spongemock.sponge(message.content)
         await message.channel.send(text)
     #    if('trade') in message.content:
