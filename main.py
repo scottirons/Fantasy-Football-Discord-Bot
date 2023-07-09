@@ -11,6 +11,7 @@ import stats_pull
 import power_rankings
 import points_stuff
 import you_fucked_up
+from dotenv import load_dotenv
 
 
 questions = {'who', 'what', 'which'}
@@ -236,4 +237,4 @@ async def on_message(message):
     await client.process_commands(message)
 
 
-client.run(os.environ['DISCORD_TOKEN'])
+client.run(os.getenv('DISCORD_TOKEN'))
