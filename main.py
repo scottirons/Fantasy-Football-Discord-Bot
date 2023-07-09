@@ -13,6 +13,8 @@ import points_stuff
 import you_fucked_up
 from dotenv import load_dotenv
 
+load_dotenv()
+
 
 questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
