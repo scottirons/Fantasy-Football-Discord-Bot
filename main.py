@@ -13,6 +13,7 @@ import points_stuff
 import you_fucked_up
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 
@@ -237,6 +238,5 @@ async def on_message(message):
             if len(message.content) == 3:
                 await message.channel.send(file=discord.File('watchyourprofanity.gif'))
     await client.process_commands(message)
-
 
 client.run(os.getenv('DISCORD_TOKEN'))
