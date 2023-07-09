@@ -49,8 +49,9 @@ swears = {'fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'la
 #     async def on_ready(self):
 #         print(f"Bot {self.user.display_name} is connected to server.")
 
-
-client = commands.Bot(command_prefix=['!'], intents=discord.Intents.default())
+intents = discord.Intents.default()
+intents.message_content = True
+client = commands.Bot(command_prefix=['!'], intents=intents)
 
 
 @client.event
