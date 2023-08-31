@@ -11,6 +11,7 @@ import stats_pull
 import power_rankings
 import points_stuff
 import you_fucked_up
+import time
 from dotenv import load_dotenv
 from espn_api.football import League
 
@@ -81,6 +82,7 @@ async def on_ready():
 
 @client.command(brief="update data more easily")
 async def update(ctx):
+    start_time = time.perf_counter()
     global league, nested_dict
     league = League(league_id=41302936, year=2023, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
                                                            'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G'
@@ -115,6 +117,7 @@ async def update(ctx):
         nested_dict.setdefault(team.team_name, []).append(pos_name)
 
     nested_dict = dict(zip(ournames, list(nested_dict.values())))
+    print(f"League and positions updated in {time.perf_counter() - start_time} seconds")
 
 
 @client.command(brief="how many more points could you have scored?")
