@@ -12,10 +12,9 @@ import power_rankings
 import points_stuff
 import you_fucked_up
 from dotenv import load_dotenv
-
+from espn_api.football import League
 
 load_dotenv()
-
 
 questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
@@ -37,26 +36,34 @@ byez = {'bye', 'good night', 'see you', 'toodles'}
 bye = ['toodles', 'bye gurl', 'see ya later, alligator', 'in a while, crocodile', 'peace out, Boy Scout']
 swears = {'fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura'}
 
-
-# class Robot(commands.Bot):
-#     def __init__(self):
-#         super().__init__(command_prefix="!")
-#
-#         @self.command(name='test')
-#         async def custom_command(ctx):
-#             print("Hello world !")
-#
-#     async def on_ready(self):
-#         print(f"Bot {self.user.display_name} is connected to server.")
-
 intents = discord.Intents.default()
 intents.message_content = True
 client = commands.Bot(command_prefix=['!'], intents=intents)
+league = League(league_id=41302936, year=2023, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
+                                                       'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G%2F2zGVo%2BKM0YtL1At' \
+                                                       'pcN2ZiLNyhIMeCr7BvYd056vhbRRX3nwd%2Fxq23R9w7bwyDhyIH5sMxVBOur690YldBTTCLJZjbHk' \
+                                                       'rUg0tA6kcD3wtCiP8CICrQmezMZBSpu6dad61FwoAIJSNo2NqexL5627uGt%2BXX9f9SFK6EcqNk2z7' \
+                                                       'F5%2BANM5Es9oNA8MI0Wz9a8Wt',
+                swid='{F713A680-D381-43C3-93A6-80D38113C33C}')
 
 
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+
+
+@client.command(brief="update data more easily")
+async def update(ctx):
+    global league
+    league = League(league_id=41302936, year=2023, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
+                                                           'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G'
+                                                           '%2F2zGVo%2BKM0YtL1At' \
+                                                           'pcN2ZiLNyhIMeCr7BvYd056vhbRRX3nwd'
+                                                           '%2Fxq23R9w7bwyDhyIH5sMxVBOur690YldBTTCLJZjbHk' \
+                                                           'rUg0tA6kcD3wtCiP8CICrQmezMZBSpu6dad61FwoAIJSNo2'
+                                                           'NqexL5627uGt%2BXX9f9SFK6EcqNk2z7' \
+                                                           'F5%2BANM5Es9oNA8MI0Wz9a8Wt',
+                    swid='{F713A680-D381-43C3-93A6-80D38113C33C}')
 
 
 @client.command(brief="how many more points could you have scored?")
@@ -239,5 +246,6 @@ async def on_message(message):
             if len(message.content) == 3:
                 await message.channel.send(file=discord.File('watchyourprofanity.gif'))
     await client.process_commands(message)
+
 
 client.run(os.getenv('DISCORD_TOKEN'))
