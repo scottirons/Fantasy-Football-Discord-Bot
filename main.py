@@ -64,6 +64,7 @@ for team in league.teams:
 
         pos_name = {}
 
+    pos_name = {}
     for player in players:
         pos_name.setdefault(player.position, []).append(player.name)
     nested_dict.setdefault(team.team_name, []).append(pos_name)
@@ -107,8 +108,8 @@ async def update():
             name = player.name
             names.append(name)
 
-            pos_name = {}
 
+        pos_name = {}
         for player in players:
             pos_name.setdefault(player.position, []).append(player.name)
         nested_dict.setdefault(team.team_name, []).append(pos_name)
