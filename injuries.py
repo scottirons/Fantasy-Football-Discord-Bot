@@ -14,8 +14,7 @@ def injured_dict(league):
             name = player.name
             names.append(name)
 
-            pos_name = {}
-
+        pos_name = {}
         for player in players:
             pos_name.setdefault(player.injuryStatus, []).append(player.name)
         nested_dict.setdefault(team.team_name, []).append(pos_name)
