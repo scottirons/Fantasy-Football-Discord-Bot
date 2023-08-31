@@ -12,7 +12,7 @@ def points(player):
     season_start = date(2023, 9, 7)
     today = date.today()
     difference = today - season_start
-    days = (difference.days)
+    days = difference.days
     week = days // 7 + 1
 
     player = player.title()
