@@ -63,16 +63,17 @@ def make_position_dict():
 
     # print(flex_squads)
 
-    id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Brendan', 4: 'Ben', 5: 'Patrick', 6: 'Jrog',
-                   7: 'Scott', 8: 'Robert', 9: 'Nathaniel', 10: 'Jon', 11: 'Nick', 12: 'Jared'}
-    for number in range(1,13):
+    id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 4: 'Patrick', 5: 'Smith', 6: 'Robert',
+                   7: 'Jon', 8: 'Scott', 9: 'Kyle', 10: 'Phoenix', 11: 'Alex', 12: 'Baker'}
+    for number in range(1, 13):
         flex_squads[id_and_name[number]] = flex_squads.pop(number)
-    return(flex_squads)
+    return flex_squads
+
 
 def pick_flex(name):
     flex_squads = make_position_dict()
     name = name.title()
-    return('You should start ' + random.choice(flex_squads[name]) + '.')
+    return 'You should start ' + random.choice(flex_squads[name]) + '.'
 
 # print(pick_flex('scott'))
 # print(flex_squads)

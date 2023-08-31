@@ -26,10 +26,10 @@ def injured_dict():
             pos_name = {}
 
         for player in players:
-            pos_name.setdefault(player.injuryStatus,[]).append(player.name)
+            pos_name.setdefault(player.injuryStatus, []).append(player.name)
         nested_dict.setdefault(team.team_name, []).append(pos_name)
-    ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'Jrog', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared',
-                'Ethan']
+    ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Smith', 'Robert', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Alex',
+                'Baker']
     positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
     nested_dict = dict(zip(ournames, list(nested_dict.values())))
 
