@@ -1,12 +1,11 @@
 # gonna do some stuff with stats in this file
 
-from main import league
 from datetime import date
 
 
 # find current week so it'll pull the right stats
-def make_points_dict():
-    season_start = date(2021, 9, 14)
+def make_points_dict(league):
+    season_start = date(2023, 9, 7)
     today = date.today()
     difference = today - season_start
     days = difference.days
@@ -30,7 +29,7 @@ def make_points_dict():
         total_points = []
         for player in players:
             total_points = player.total_points
-            total_points += (total_points)
+            total_points += total_points
 
             names = {}
 
@@ -41,9 +40,9 @@ def make_points_dict():
     return nested_dict
 
 
-def average_points(name):
+def average_points(name, league):
     name = name.lower()
-    dict = make_points_dict()
+    dict = make_points_dict(league)
 
     season_start = date(2021, 9, 14)
     today = date.today()

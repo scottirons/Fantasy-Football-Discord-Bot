@@ -1,9 +1,8 @@
-from main import league
 from datetime import date
 
 
 #print(rankings[0][1].team_name)
-def stonks():
+def stonks(league):
     '''prints power rankings of all teams'''
     season_start = date(2021, 9, 14)
     today = date.today()

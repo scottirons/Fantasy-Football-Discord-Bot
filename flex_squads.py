@@ -1,10 +1,8 @@
-from main import league
 import random
 from datetime import date
 
-def make_position_dict():
-    nested_dict = {}
-    teams = []
+
+def make_position_dict(league):
 
     # set target date at end of week 1, then use this to automatically tabulate the current week
     season_start = date(2023, 9, 7)
@@ -12,7 +10,6 @@ def make_position_dict():
     difference = today-season_start
     days = difference.days
     week = days//7 + 2
-
 
     # now make list of startable flex players either in flex or on bench
     box_scores = league.box_scores(week)
@@ -64,8 +61,8 @@ def make_position_dict():
     return flex_squads
 
 
-def pick_flex(name):
-    flex_squads = make_position_dict()
+def pick_flex(name, league):
+    flex_squads = make_position_dict(league)
     name = name.title()
     return 'You should start ' + random.choice(flex_squads[name]) + '.'
 

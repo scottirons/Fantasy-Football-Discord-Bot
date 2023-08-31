@@ -46,6 +46,32 @@ league = League(league_id=41302936, year=2023, espn_s2='AEBZs%2F0JhLRPJvsLxD28Ba
                                                        'F5%2BANM5Es9oNA8MI0Wz9a8Wt',
                 swid='{F713A680-D381-43C3-93A6-80D38113C33C}')
 
+nested_dict = {}
+teams = []
+
+for team in league.teams:
+    teams.append(team.team_name)
+
+for team in league.teams:
+    nested_dict.setdefault(team.team_name, [])
+
+    players = team.roster
+
+    names = []
+    for player in players:
+        name = player.name
+        names.append(name)
+
+        pos_name = {}
+
+    for player in players:
+        pos_name.setdefault(player.position, []).append(player.name)
+    nested_dict.setdefault(team.team_name, []).append(pos_name)
+
+ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
+positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
+nested_dict = dict(zip(ournames, list(nested_dict.values())))
+
 
 @client.event
 async def on_ready():
@@ -53,8 +79,8 @@ async def on_ready():
 
 
 @client.command(brief="update data more easily")
-async def update(ctx):
-    global league
+async def update():
+    global league, nested_dict
     league = League(league_id=41302936, year=2023, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
                                                            'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G'
                                                            '%2F2zGVo%2BKM0YtL1At' \
@@ -64,6 +90,30 @@ async def update(ctx):
                                                            'NqexL5627uGt%2BXX9f9SFK6EcqNk2z7' \
                                                            'F5%2BANM5Es9oNA8MI0Wz9a8Wt',
                     swid='{F713A680-D381-43C3-93A6-80D38113C33C}')
+
+    nested_dict = {}
+    teams = []
+
+    for team in league.teams:
+        teams.append(team.team_name)
+
+    for team in league.teams:
+        nested_dict.setdefault(team.team_name, [])
+
+        players = team.roster
+
+        names = []
+        for player in players:
+            name = player.name
+            names.append(name)
+
+            pos_name = {}
+
+        for player in players:
+            pos_name.setdefault(player.position, []).append(player.name)
+        nested_dict.setdefault(team.team_name, []).append(pos_name)
+
+    nested_dict = dict(zip(ournames, list(nested_dict.values())))
 
 
 @client.command(brief="how many more points could you have scored?")
@@ -92,7 +142,7 @@ async def goober(ctx):
                         message: message.author == ctx.author, timeout=10)
                 week = week.content
             week = int(week)
-            await ctx.channel.send(you_fucked_up.max_points(msg, week))
+            await ctx.channel.send(you_fucked_up.max_points(msg, week, league))
 
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
@@ -125,9 +175,9 @@ async def starters(ctx):
                         message: message.author == ctx.author, timeout=10)
                 position = position.content
             if position.lower() == 'flex':
-                await ctx.channel.send(flex_squads.pick_flex(msg))
+                await ctx.channel.send(flex_squads.pick_flex(msg, league))
             else:
-                await ctx.channel.send(starterpick.who_start(msg, position))
+                await ctx.channel.send(starterpick.who_start(msg, position, nested_dict))
 
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
@@ -141,7 +191,7 @@ async def _8ball(ctx):
 @client.command(brief="stop typing '!injuries jon' u jerks")
 async def injuries(ctx, name):
     name = name.title()
-    await ctx.channel.send(injured_player.injury(name))
+    await ctx.channel.send(injured_player.injury(name, league))
 
 
 @client.command(brief="BOOOOOOO DESCRIPTIONS BOOOOOOOOOO")
@@ -157,18 +207,18 @@ async def shoulda(ctx, *msg):
 @client.command(brief="type a player's name and see his average points. wow :)")
 async def points(ctx, *msg):
     name = ("{}".format(" ".join(msg)))
-    await ctx.send((stats_pull.average_points(name)))
+    await ctx.send((stats_pull.average_points(name, league)))
 
 
 @client.command(brief="power rankings aka who's close to Arvin")
 async def power(ctx):
-    await ctx.send(power_rankings.stonks())
+    await ctx.send(power_rankings.stonks(league))
 
 
 @client.command(brief="gives you average points 'n' stuff")
 async def scoring(ctx, name):
     name = name.title()
-    await ctx.send(points_stuff.points(name))
+    await ctx.send(points_stuff.points(name, league))
 
 
 @client.command(brief='just repeats your message lol')

@@ -1,8 +1,5 @@
-from main import league
-
-def injured_dict():
-    global nested_dict
-    nested_dict= {}
+def injured_dict(league):
+    nested_dict = {}
     teams = []
     for team in league.teams:
         teams.append(team.team_name)

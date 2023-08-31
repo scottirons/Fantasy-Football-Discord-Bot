@@ -1,12 +1,10 @@
-from main import league
 from collections import defaultdict
 import heapq
-
-teams = league.teams
 
 
 id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Brendan', 4: 'Ben', 5: 'Patrick', 6: 'Jrog',
                    13: 'Ethan', 8: 'Robert', 9: 'Nathaniel', 10: 'Jon', 11: 'Nick', 12: 'Jared'}
+
 def get_key(val):
     for key, value in id_and_name.items():
         if val == value:
@@ -14,7 +12,9 @@ def get_key(val):
         else:
             continue
 
-def get_team(name):
+
+def get_team(name, league):
+    teams = league.teams
     name = name.title()
     id = get_key(name)
     for team in teams:
@@ -24,7 +24,7 @@ def get_team(name):
             continue
 
 # use get_team function and then pass the team into this function
-def get_gameday_roster(team, week):
+def get_gameday_roster(team, week, league):
     '''gets the correct team within box_score class'''
     box_scores = league.box_scores(week)
     current_roster, current_points = None, None
@@ -38,10 +38,10 @@ def get_gameday_roster(team, week):
     return current_roster, current_points
 
 
-def max_points(name, week):
-    team = get_team(name)
-    roster = get_gameday_roster(team, week)[0]
-    points = round(get_gameday_roster(team, week)[1], 2)
+def max_points(name, week, league):
+    team = get_team(name, league)
+    roster = get_gameday_roster(team, week, league)[0]
+    points = round(get_gameday_roster(team, week, league)[1], 2)
     max_score_dict = {'QB': 0, 'RB1': 0, 'RB2': 0, 'WR1': 0, 'WR2': 0, 'FLEX': 0, 'TE': 0, 'K': 0, 'DEF': 0}
     positions = defaultdict(list)
 

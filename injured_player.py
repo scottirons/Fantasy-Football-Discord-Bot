@@ -1,7 +1,8 @@
 from injuries import injured_dict
 
-def injury(person):
-    nested_dict = injured_dict()  # create the dictionary i think
+
+def injury(person, league):
+    nested_dict = injured_dict(league)  # create the dictionary i think
 
     person = person.title()
     if person not in nested_dict:

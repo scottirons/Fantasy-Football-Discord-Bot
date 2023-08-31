@@ -1,14 +1,14 @@
-from main import league
+
 from datetime import date
 
-teams = league.teams
 ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Smith', 'Robert', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Alex',
             'Baker']
 
 
 # print(teams[0])
 
-def points(player):
+def points(player, league):
+    teams = league.teams
     season_start = date(2023, 9, 7)
     today = date.today()
     difference = today - season_start
@@ -36,7 +36,3 @@ def points(player):
     differential = round(differential, 2)
     listie.append('Point differential: ' + str(differential))
     return '\n'.join(listie)
-
-
-if __name__ == "__main__":
-    print(points('Scott'))
