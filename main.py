@@ -80,7 +80,7 @@ async def on_ready():
 
 
 @client.command(brief="update data more easily")
-async def update():
+async def update(ctx):
     global league, nested_dict
     league = League(league_id=41302936, year=2023, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
                                                            'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G'
