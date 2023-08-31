@@ -1,7 +1,6 @@
-
 import random
 
-from main import positions
+positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
 
 
 def who_start(playername, whatpos, nested_dict):
