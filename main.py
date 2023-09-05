@@ -70,7 +70,8 @@ for team in league.teams:
         pos_name.setdefault(player.position, []).append(player.name)
     nested_dict.setdefault(team.team_name, []).append(pos_name)
 
-ournames = ['Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick', 'Jrog', 'Scott', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared']
+ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Smith', 'Robert', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Alex',
+            'Baker']
 # positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
 
@@ -109,7 +110,6 @@ async def update(ctx):
         for player in players:
             name = player.name
             names.append(name)
-
 
         pos_name = {}
         for player in players:
@@ -158,7 +158,7 @@ async def starters(ctx):
         await ctx.send("What's your name?")
         msg = await client.wait_for('message', check=lambda \
                 message: message.author == ctx.author, timeout=10)
-
+        position = None
         if msg:
             msg = msg.content
             if msg.capitalize() not in ournames:
