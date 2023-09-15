@@ -79,3 +79,25 @@ def full_goob(league, current_week):
             full_goob_dict[week][name] = max_points(name, week, league)
 
     return full_goob_dict
+
+
+def goober_report(week, full_goob_dict):
+    goob_scores = full_goob_dict[week]
+    max_player = None
+    max_score = 0
+    min_player = None
+    min_score = 500
+
+    for player in goob_scores:
+        if goob_scores[player][2] > max_score:
+            max_score = goob_scores[player][2]
+            max_player = player
+        elif goob_scores[player][2] < min_score:
+            min_score = goob_scores[player][2]
+            min_player = player
+
+    return "This week's biggest goober was " + max_player + ", who only scored " + goob_scores[max_player][0] + \
+           " points, but could have scored " + goob_scores[max_player][1] + " points, resulting in a goober index of " \
+           + max_score + " points.\nThis week's most precise starter picker was " + min_player + ", who scored " + \
+           goob_scores[min_player][0] + " points, and could have scored a max of " + goob_scores[min_player][1] + \
+           " points, resulting in a goober index of " + min_score + " points. Noice *smack*."
