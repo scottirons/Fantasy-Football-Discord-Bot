@@ -1,15 +1,13 @@
 from collections import defaultdict
 import heapq
-import main
 
-id_and_name = main.id_and_name
+id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 4: 'Patrick', 5: 'Smith', 6: 'Robert',
+                   7: 'Jon', 8: 'Scott', 9: 'Kyle', 10: 'Phoenix', 11: 'Nick', 12: 'Baker'}
 
 def get_key(val):
     for key, value in id_and_name.items():
         if val == value:
             return key
-        else:
-            continue
 
 
 def get_team(name, league):
