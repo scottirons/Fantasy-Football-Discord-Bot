@@ -1,8 +1,8 @@
 from collections import defaultdict
 import heapq
 
-id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 4: 'Patrick', 5: 'Smith', 6: 'Robert',
-                   7: 'Jon', 8: 'Scott', 9: 'Kyle', 10: 'Phoenix', 11: 'Nick', 12: 'Baker'}
+id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 5: 'Patrick', 6: 'Smith', 8: 'Robert',
+                   10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
 
 def get_key(val):
     for key, value in id_and_name.items():
