@@ -12,13 +12,13 @@ def get_key(val):
 
 def get_team(name, league):
     teams = league.teams
+    for team in teams:
+        print(team.team_id + team.team_name)
     name = name.title()
     id = get_key(name)
     for team in teams:
         if team.team_id == id:
             return team
-        else:
-            continue
 
 # use get_team function and then pass the team into this function
 def get_gameday_roster(team, week, league):
