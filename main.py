@@ -150,7 +150,7 @@ async def goober(ctx):
                                "You get one more try.")
                 msg = await client.wait_for('message', check=lambda
                     message: message.author == ctx.author, timeout=10)
-                msg = msg.content
+                msg = msg.content.capitalize()
             await ctx.send("What week? Please enter a number.")
             week = await client.wait_for('message', check=lambda
                 message: message.author == ctx.author, timeout=10)
@@ -161,10 +161,11 @@ async def goober(ctx):
                                " Please try again!")
                 week = await client.wait_for('message', check=lambda \
                         message: message.author == ctx.author, timeout=10)
-                week = week.content
+                week = int(week.content)
             start = time.perf_counter()
-            await ctx.channel.send(goober_index.print_goober_index(goober_scores[msg][0], goober_scores[msg][1],
-                                                                   goober_scores[msg][2]))
+            await ctx.channel.send(goober_index.print_goober_index(goober_scores[week][msg][0],
+                                                                   goober_scores[week][msg][1],
+                                                                   goober_scores[week][msg][2]))
             print("Goober index took " + str(time.perf_counter() - start) + " seconds.")
 
     except asyncio.TimeoutError:

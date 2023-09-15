@@ -73,9 +73,10 @@ def print_goober_index(name, week, league):
                      "You left " + str(difference) + " points on the table you goober!"
 
 
-def full_goob(league, week):
-    full_goob_dict = {}
-    for name in our_names:
-        full_goob_dict[name] = max_points(name, week, league)
+def full_goob(league, current_week):
+    full_goob_dict = defaultdict(dict)
+    for week in range(1, current_week):
+        for name in our_names:
+            full_goob_dict[week][name] = max_points(name, week, league)
 
     return full_goob_dict
