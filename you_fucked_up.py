@@ -13,7 +13,7 @@ def get_key(val):
 def get_team(name, league):
     teams = league.teams
     for team in teams:
-        print(team.team_id + team.team_name)
+        print(str(team.team_id) + " is " + team.team_name)
     name = name.title()
     id = get_key(name)
     for team in teams:
