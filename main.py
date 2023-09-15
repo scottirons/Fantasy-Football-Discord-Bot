@@ -138,6 +138,7 @@ async def update(ctx):
 @client.command(brief="how many more points could you have scored?")
 async def goober(ctx):
     week = None
+    msg = None
     try:
         await ctx.send("What's your name?")
         msg = await client.wait_for('message', check=lambda
@@ -162,8 +163,8 @@ async def goober(ctx):
                         message: message.author == ctx.author, timeout=10)
                 week = week.content
             start = time.perf_counter()
-            await ctx.channel.send(goober_index.print_goober_index(goober_scores[name][0], goober_scores[name][1],
-                                                                   goober_scores[name][2]))
+            await ctx.channel.send(goober_index.print_goober_index(goober_scores[msg][0], goober_scores[msg][1],
+                                                                   goober_scores[msg][2]))
             print("Goober index took " + str(time.perf_counter() - start) + " seconds.")
 
     except asyncio.TimeoutError:
