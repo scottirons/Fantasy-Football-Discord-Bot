@@ -1,38 +1,33 @@
 from collections import defaultdict
 import heapq
 
-id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 5: 'Patrick', 6: 'Smith', 8: 'Robert',
-                   10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
-
-def get_key(val):
-    for key, value in id_and_name.items():
-        if val == value:
-            return key
+id_and_name = {'Arvin': 1, 'Liam': 2, 'Cooper': 3, 'Patrick': 5, 'Smith': 6, 'Robert': 8, 'Jon': 10, 'Scott': 11,
+               'Kyle': 12, 'Phoenix': 13, 'Nick': 14, 'Baker': 15}
 
 
 def get_team(name, league):
     teams = league.teams
-    for team in teams:
-        print(str(team.team_id) + " is " + team.team_name)
+    # for team in teams:
+    #     print(str(team.team_id) + " is " + team.team_name)
     name = name.title()
-    id = get_key(name)
     for team in teams:
-        if team.team_id == id:
+        if team.team_id == id_and_name[name]:
             return team
+
 
 # use get_team function and then pass the team into this function
 def get_gameday_roster(team, week, league):
-    '''gets the correct team within box_score class'''
+    """gets the correct team within box_score class"""
     box_scores = league.box_scores(week)
-    current_roster, current_points = None, None
     for i in range(len(box_scores)):
         if box_scores[i].away_team == team:
             current_roster = box_scores[i].away_lineup
             current_points = box_scores[i].away_score
+            return current_roster, current_points
         elif box_scores[i].home_team == team:
             current_roster = box_scores[i].home_lineup
             current_points = box_scores[i].home_score
-    return current_roster, current_points
+            return current_roster, current_points
 
 
 def max_points(name, week, league):
@@ -65,10 +60,12 @@ def max_points(name, week, league):
 
     max_score = round((sum(max_score_dict.values())), 2)
     difference = round((max_score - points), 2)
-    return "In week " + str(week) + " you scored " + str(points) + " points.\n"\
-            "You could have scored " + str(max_score) + " points.\n"\
-            "You left " + str(difference) + " points on the table you goober!"
+    return points, max_score, difference
 
 
-if __name__ == "__main__":
-    print(max_points('jon', 3))
+def print_goober_index(name, week, league):
+    points, max_score, difference = max_points(name, week, league)
+    return "In week " + str(week) + " you scored " + str(points) + " points.\n" \
+                                                                   "You could have scored " + str(
+        max_score) + " points.\n" \
+                     "You left " + str(difference) + " points on the table you goober!"

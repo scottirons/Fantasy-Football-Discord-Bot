@@ -10,7 +10,7 @@ import flex_squads
 import stats_pull
 import power_rankings
 import points_stuff
-import you_fucked_up
+import goober_index
 import time
 from dotenv import load_dotenv
 from espn_api.football import League
@@ -21,8 +21,6 @@ questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
 qbeez = {'qb', 'quarterback'}
 winloss = {'win', 'lose', 'last', 'first'}
-ournames = {'Arvin', 'Liam', 'Brendan', 'Ben', 'Patrick',
-            'Jrog', 'Ethan', 'Robert', 'Nathaniel', 'Jon', 'Nick', 'Jared'}
 positions = {'k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',
              'quarterback', 'd/st', 'def', 'defense', 'kicker', 'flex', 'te',
              'tight end', 'wr', 'wide receiver'}
@@ -76,6 +74,7 @@ ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Smith', 'Robert', 'Jon', 'Sco
 id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 5: 'Patrick', 6: 'Smith', 8: 'Robert',
                    10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
+flexable_players = flex_squads.make_position_dict(league)
 
 
 @client.event
@@ -86,7 +85,7 @@ async def on_ready():
 @client.command(brief="update data more easily")
 async def update(ctx):
     start_time = time.perf_counter()
-    global league, nested_dict
+    global league, nested_dict, flexable_players
     league = League(league_id=41302936, year=2023, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
                                                            'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G'
                                                            '%2F2zGVo%2BKM0YtL1At' \
@@ -119,6 +118,7 @@ async def update(ctx):
         nested_dict.setdefault(team.team_name, []).append(pos_name)
 
     nested_dict = dict(zip(ournames, list(nested_dict.values())))
+    flexable_players = flex_squads.make_position_dict(league)
     print(f"League and positions updated in {time.perf_counter() - start_time} seconds")
 
 
@@ -148,7 +148,7 @@ async def goober(ctx):
                         message: message.author == ctx.author, timeout=10)
                 week = week.content
             week = int(week)
-            await ctx.channel.send(you_fucked_up.max_points(msg, week, league))
+            await ctx.channel.send(goober_index.print_goober_index(msg, week, league))
 
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
@@ -182,7 +182,7 @@ async def starters(ctx):
                         message: message.author == ctx.author, timeout=10)
                 position = position.content
             if position.lower() == 'flex':
-                await ctx.channel.send(flex_squads.pick_flex(msg, league))
+                await ctx.channel.send(flex_squads.pick_flex(msg, flexable_players))
             else:
                 await ctx.channel.send(starterpick.who_start(msg, position, nested_dict))
 

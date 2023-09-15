@@ -1,6 +1,9 @@
 import random
 from datetime import date
 
+id_and_name = {'Arvin': 1, 'Liam': 2, 'Cooper': 3, 'Patrick': 5, 'Smith': 6, 'Robert': 8, 'Jon': 10, 'Scott': 11,
+               'Kyle': 12, 'Phoenix': 13, 'Nick': 14, 'Baker': 15}
+
 
 def make_position_dict(league):
 
@@ -19,52 +22,42 @@ def make_position_dict(league):
         name_and_position = {}
 
         for y in range(len(box_scores[x].away_lineup)):
-            if box_scores[x].away_lineup[y].position in ['RB', 'TE', 'WR']:
+            if box_scores[x].away_lineup[y].position in {'RB', 'TE', 'WR'}:
                 name_and_position[box_scores[x].away_lineup[y].name] = box_scores[x].away_lineup[y].slot_position
         print(name_and_position)
         eligible = []
 
         for player in name_and_position:
-            if name_and_position[player] == 'BE':
-                eligible.append(player)
-            elif name_and_position[player] == 'RB/WR/TE':
+            if name_and_position[player] in {'BE', 'RB/WR/TE'}:
                 eligible.append(player)
 
-        name = box_scores[x].away_team.team_id
-        flex_squads[name] = eligible
+        team_id = box_scores[x].away_team.team_id
+        flex_squads[team_id] = eligible
 
     # NOW ADD HOME TEAM
     for x in range(len(box_scores)):
         name_and_position = {}
 
         for y in range(len(box_scores[x].home_lineup)):
-            if box_scores[x].home_lineup[y].position in ['RB', 'TE', 'WR']:
+            if box_scores[x].home_lineup[y].position in {'RB', 'TE', 'WR'}:
                 name_and_position[box_scores[x].home_lineup[y].name] = box_scores[x].home_lineup[y].slot_position
         # print(len(name_and_position))
         eligible = []
 
         for player in name_and_position:
-            if name_and_position[player] == 'BE':
-                eligible.append(player)
-            elif name_and_position[player] == 'RB/WR/TE':
+            if name_and_position[player] in {'BE', 'RB/WR/TE'}:
                 eligible.append(player)
 
-        name = box_scores[x].home_team.team_id
-        flex_squads[name] = eligible
+        team_id = box_scores[x].home_team.team_id
+        flex_squads[team_id] = eligible
 
     # print(flex_squads)
-
-    id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 5: 'Patrick', 6: 'Smith', 8: 'Robert',
-                   10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
-    for number in range(1, 13):
-        flex_squads[id_and_name[number]] = flex_squads.pop(number)
     return flex_squads
 
 
-def pick_flex(name, league):
-    flex_squads = make_position_dict(league)
+def pick_flex(name, flexable_players):
     name = name.title()
-    return 'You should start ' + random.choice(flex_squads[name]) + '.'
+    return 'You should start ' + random.choice(flexable_players[id_and_name[name]]) + '.'
 
 # print(pick_flex('scott'))
 # print(flex_squads)
