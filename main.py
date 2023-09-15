@@ -151,9 +151,9 @@ async def gooberreport(ctx):
     except asyncio.TimeoutError:
         await ctx.send("TOO SLOW! Here's this past week's goober report.")
         await ctx.send(goober_index.goober_report(week, goober_scores))
-    await ctx.send("The goober report currently doesn't take into account which matchups were lost by extreme"
+    await ctx.send("The goober report currently doesn't take into account which matchups were lost by extreme "
                    "goobosity and whether lower goober indices even correlate with won matchups, but that's coming "
-                   "soon \u2122.")
+                   "soon\u2122")
 
 
 
