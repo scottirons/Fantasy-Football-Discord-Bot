@@ -139,7 +139,7 @@ async def update(ctx):
 async def gooberreport(ctx):
     try:
         await ctx.send("Which week's goober report do you want?")
-        msg = await client.wait_for('message', check=lambda message: message.author == ctx.author, timeout=10)
+        msg = await client.wait_for('message', check=lambda message: message.author == ctx.author, timeout=4)
         if msg:
             try:
                 week = int(msg.content)
