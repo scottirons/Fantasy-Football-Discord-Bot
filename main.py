@@ -137,7 +137,6 @@ async def update(ctx):
 
 @client.command(brief="Who was the goobiest goober?")
 async def gooberreport(ctx):
-    week = get_current_week()
     try:
         await ctx.send("Which week's goober report do you want?")
         msg = await client.wait_for('message', check=lambda message: message.author == ctx.author, timeout=10)
@@ -147,10 +146,10 @@ async def gooberreport(ctx):
                 await ctx.send(goober_index.goober_report(week, goober_scores))
             except ValueError:
                 await ctx.send("That's not a number, you non-rule-follower. I'll just show the current week's report.")
-                await ctx.send(goober_index.goober_report(week, goober_scores))
+                await ctx.send(goober_index.goober_report(get_current_week(), goober_scores))
     except asyncio.TimeoutError:
         await ctx.send("TOO SLOW! Here's this past week's goober report.")
-        await ctx.send(goober_index.goober_report(week, goober_scores))
+        await ctx.send(goober_index.goober_report(get_current_week(), goober_scores))
     await ctx.send("The goober report currently doesn't take into account which matchups were lost by extreme "
                    "goobosity and whether lower goober indices even correlate with won matchups, but that's coming "
                    "soon\u2122")
