@@ -3,6 +3,8 @@ import heapq
 
 id_and_name = {'Arvin': 1, 'Liam': 2, 'Cooper': 3, 'Patrick': 5, 'Smith': 6, 'Robert': 8, 'Jon': 10, 'Scott': 11,
                'Kyle': 12, 'Phoenix': 13, 'Nick': 14, 'Baker': 15}
+our_names = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Smith', 'Robert', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
+            'Baker']
 
 
 def get_team(name, league):
@@ -69,3 +71,11 @@ def print_goober_index(name, week, league):
                                                                    "You could have scored " + str(
         max_score) + " points.\n" \
                      "You left " + str(difference) + " points on the table you goober!"
+
+
+def full_goob(league, week):
+    full_goob_dict = {}
+    for name in our_names:
+        full_goob_dict[name] = max_points(name, week, league)
+
+    return full_goob_dict
