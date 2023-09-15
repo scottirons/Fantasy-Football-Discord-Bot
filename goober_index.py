@@ -96,8 +96,12 @@ def goober_report(week, full_goob_dict):
             min_score = goob_scores[player][2]
             min_player = player
 
-    return "This week's biggest goober was " + max_player + ", who only scored " + goob_scores[max_player][0] + \
-           " points, but could have scored " + goob_scores[max_player][1] + " points, resulting in a goober index of " \
-           + max_score + " points.\nThis week's most precise starter picker was " + min_player + ", who scored " + \
-           goob_scores[min_player][0] + " points, and could have scored a max of " + goob_scores[min_player][1] + \
-           " points, resulting in a goober index of " + min_score + " points. Noice *smack*."
+    result = (
+        f"This week's biggest goober was {max_player}, who only scored {goob_scores[max_player][0]} points, "
+        f"but could have scored {goob_scores[max_player][1]} points, resulting in a goober index of {max_score} points."
+        f"\nThis week's most precise lineup picker was {min_player}, who scored {goob_scores[min_player][0]} points, "
+        f"and could have scored a max of {goob_scores[min_player][1]} points, resulting in a goober index of "
+        f"{min_score} points. Noice *smack*."
+    )
+
+    return result
