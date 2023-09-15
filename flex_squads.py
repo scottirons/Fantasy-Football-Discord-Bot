@@ -24,7 +24,7 @@ def make_position_dict(league):
         for y in range(len(box_scores[x].away_lineup)):
             if box_scores[x].away_lineup[y].position in {'RB', 'TE', 'WR'}:
                 name_and_position[box_scores[x].away_lineup[y].name] = box_scores[x].away_lineup[y].slot_position
-        print(name_and_position)
+        # print(name_and_position)
         eligible = []
 
         for player in name_and_position:

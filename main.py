@@ -178,7 +178,7 @@ async def starters(ctx):
         if position:
             position = position.content
             if position not in positions:
-                print(position, positions)
+                # print(position, positions)
                 await ctx.send("I'm sorry, I don't recognize that position. "
                                "You get one more try.")
                 position = await client.wait_for('message', check=lambda \
