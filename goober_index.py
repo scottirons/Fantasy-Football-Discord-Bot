@@ -65,8 +65,7 @@ def max_points(name, week, league):
     return points, max_score, difference
 
 
-def print_goober_index(name, week, league):
-    points, max_score, difference = max_points(name, week, league)
+def print_goober_index(week, points, max_score, difference):
     return "In week " + str(week) + " you scored " + str(points) + " points.\n" \
                                                                    "You could have scored " + str(
         max_score) + " points.\n" \

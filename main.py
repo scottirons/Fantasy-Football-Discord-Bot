@@ -166,7 +166,8 @@ async def goober(ctx):
             print("it's week " + week + " and the requestor is " + msg + ".")
             week = int(week)
             print(goober_scores)
-            await ctx.channel.send(goober_index.print_goober_index(goober_scores[week][msg][0],
+            await ctx.channel.send(goober_index.print_goober_index(week,
+                                                                   goober_scores[week][msg][0],
                                                                    goober_scores[week][msg][1],
                                                                    goober_scores[week][msg][2]))
             print("Goober index took " + str(time.perf_counter() - start) + " seconds.")
