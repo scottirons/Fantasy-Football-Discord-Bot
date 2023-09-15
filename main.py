@@ -24,7 +24,7 @@ def get_current_week():
     today = date.today()
     difference = today - season_start
     days = difference.days
-    return days // 7 + 2
+    return days // 7 + 1
 
 
 questions = {'who', 'what', 'which'}
@@ -146,10 +146,10 @@ async def gooberreport(ctx):
                 await ctx.send(goober_index.goober_report(week, goober_scores))
             except ValueError:
                 await ctx.send("That's not a number, you non-rule-follower. I'll just show the current week's report.")
-                await ctx.send(goober_index.goober_report(get_current_week() - 2, goober_scores))
+                await ctx.send(goober_index.goober_report(get_current_week() - 1, goober_scores))
     except asyncio.TimeoutError:
         await ctx.send("TOO SLOW! Here's this past week's goober report.")
-        await ctx.send(goober_index.goober_report(get_current_week() - 2, goober_scores))
+        await ctx.send(goober_index.goober_report(get_current_week() - 1, goober_scores))
     await ctx.send("The goober report currently doesn't take into account which matchups were lost by extreme "
                    "goobosity and whether lower goober indices even correlate with won matchups, but that's coming "
                    "soon\u2122")
