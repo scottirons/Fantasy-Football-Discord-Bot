@@ -72,7 +72,7 @@ ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Smith', 'Robert', 'Jon', 'Sco
             'Baker']
 # positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
 id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 5: 'Patrick', 6: 'Smith', 8: 'Robert',
-                   10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
+               10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
 flexable_players = flex_squads.make_position_dict(league)
 
@@ -124,6 +124,7 @@ async def update(ctx):
 
 @client.command(brief="how many more points could you have scored?")
 async def goober(ctx):
+    week = None
     try:
         await ctx.send("What's your name?")
         msg = await client.wait_for('message', check=lambda
@@ -148,7 +149,9 @@ async def goober(ctx):
                         message: message.author == ctx.author, timeout=10)
                 week = week.content
             week = int(week)
+            start = time.perf_counter()
             await ctx.channel.send(goober_index.print_goober_index(msg, week, league))
+            print("Goober index took " + str(time.perf_counter() - start) + " seconds.")
 
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
