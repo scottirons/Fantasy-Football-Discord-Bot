@@ -87,7 +87,7 @@ nested_dict = dict(zip(ournames, list(nested_dict.values())))
 flexable_players = flex_squads.make_position_dict(league)
 season_start = date(2023, 9, 7)
 goober_scores = goober_index.full_goob(league, get_current_week())
-print(goober_scores[1])
+print(goober_scores[1]['Scott'])
 
 
 @client.event
