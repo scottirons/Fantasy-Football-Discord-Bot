@@ -87,7 +87,6 @@ nested_dict = dict(zip(ournames, list(nested_dict.values())))
 flexable_players = flex_squads.make_position_dict(league)
 season_start = date(2023, 9, 7)
 goober_scores = goober_index.full_goob(league, get_current_week())
-print(goober_scores[1]['Scott'])
 
 
 @client.event
@@ -164,6 +163,7 @@ async def goober(ctx):
                 week = int(week.content)
             start = time.perf_counter()
             msg = msg.capitalize()
+            print("it's week " + week + " and the requestor is " + msg + ".")
             await ctx.channel.send(goober_index.print_goober_index(goober_scores[week][msg][0],
                                                                    goober_scores[week][msg][1],
                                                                    goober_scores[week][msg][2]))
