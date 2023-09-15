@@ -138,7 +138,6 @@ async def update(ctx):
 @client.command(brief="how many more points could you have scored?")
 async def goober(ctx):
     week = None
-    msg = None
     try:
         await ctx.send("What's your name?")
         msg = await client.wait_for('message', check=lambda
@@ -163,6 +162,7 @@ async def goober(ctx):
                         message: message.author == ctx.author, timeout=10)
                 week = int(week.content)
             start = time.perf_counter()
+            msg = msg.capitalize()
             await ctx.channel.send(goober_index.print_goober_index(goober_scores[week][msg][0],
                                                                    goober_scores[week][msg][1],
                                                                    goober_scores[week][msg][2]))
