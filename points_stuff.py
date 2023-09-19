@@ -15,6 +15,8 @@ def points(player, league):
     days = difference.days
     week = days // 7 + 1
 
+    print("it's week " + str(week))
+
     player = player.title()
     numba = ournames.index(player)
 
