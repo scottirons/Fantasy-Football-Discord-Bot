@@ -238,7 +238,7 @@ async def _8ball(ctx):
     await ctx.send(random.choice(answers))
 
 
-@client.command(brief="stop typing '!injuries jon' u jerks")
+@client.command(brief="stop typing '!injuries scott' u jerks")
 async def injuries(ctx, name):
     name = name.title()
     await ctx.channel.send(injured_player.injury(name, league))

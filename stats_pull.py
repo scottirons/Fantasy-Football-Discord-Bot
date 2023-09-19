@@ -44,7 +44,7 @@ def average_points(name, league):
     name = name.lower()
     dict = make_points_dict(league)
 
-    season_start = date(2021, 9, 14)
+    season_start = date(2023, 9, 7)
     today = date.today()
     difference = today - season_start
     days = difference.days
@@ -62,6 +62,3 @@ def average_points(name, league):
         return ('Sorry, either the name is spelled incorrectly or the player does not exist or the player is not on ' +
                 'a current roster.')
 
-
-if __name__ == "__main__":
-    print(average_points('derrick henry'))
