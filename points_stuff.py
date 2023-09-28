@@ -9,9 +9,9 @@ ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Smith', 'Robert', 'Jon', 'Sco
 
 def points(player, league):
     teams = league.teams
-    season_start = date(2023, 9, 7)
+    first_tuesday = date(2023, 9, 12)
     today = date.today()
-    difference = today - season_start
+    difference = today - first_tuesday
     days = difference.days
     week = days // 7 + 1
 
