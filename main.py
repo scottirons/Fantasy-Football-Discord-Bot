@@ -135,217 +135,217 @@ async def update(ctx):
     print(f"League and positions updated in {time.perf_counter() - start_time} seconds")
 
 
-# @client.command(brief="Who was the goobiest goober?")
-# async def gooberreport(ctx):
-#     try:
-#         await ctx.send("Which week's goober report do you want?")
-#         msg = await client.wait_for('message', check=lambda message: message.author == ctx.author, timeout=4)
-#         if msg:
-#             try:
-#                 week = int(msg.content)
-#                 await ctx.send(goober_index.goober_report(week, goober_scores))
-#             except ValueError:
-#                 await ctx.send("That's not a number, you non-rule-follower. I'll just show the current week's report.")
-#                 await ctx.send(goober_index.goober_report(get_current_week() - 1, goober_scores))
-#     except asyncio.TimeoutError:
-#         await ctx.send("TOO SLOW! Here's this past week's goober report.")
-#         await ctx.send(goober_index.goober_report(get_current_week() - 1, goober_scores))
-#     await ctx.send("The goober report currently doesn't take into account which matchups were lost by extreme "
-#                    "goobosity and whether lower goober indices even correlate with won matchups, but that's coming "
-#                    "soon\u2122")
+@client.command(brief="Who was the goobiest goober?")
+async def gooberreport(ctx):
+    try:
+        await ctx.send("Which week's goober report do you want?")
+        msg = await client.wait_for('message', check=lambda message: message.author == ctx.author, timeout=4)
+        if msg:
+            try:
+                week = int(msg.content)
+                await ctx.send(goober_index.goober_report(week, goober_scores))
+            except ValueError:
+                await ctx.send("That's not a number, you non-rule-follower. I'll just show the current week's report.")
+                await ctx.send(goober_index.goober_report(get_current_week() - 1, goober_scores))
+    except asyncio.TimeoutError:
+        await ctx.send("TOO SLOW! Here's this past week's goober report.")
+        await ctx.send(goober_index.goober_report(get_current_week() - 1, goober_scores))
+    await ctx.send("The goober report currently doesn't take into account which matchups were lost by extreme "
+                   "goobosity and whether lower goober indices even correlate with won matchups, but that's coming "
+                   "soon\u2122")
 
 
 
-# @client.command(brief="how many more points could you have scored?")
-# async def goober(ctx):
-#     week = None
-#     try:
-#         await ctx.send("What's your name?")
-#         msg = await client.wait_for('message', check=lambda
-#             message: message.author == ctx.author, timeout=10)
-#         if msg:
-#             msg = msg.content
-#             if msg.capitalize() not in ournames:
-#                 await ctx.send("I'm sorry, I don't recognize that name. "
-#                                "You get one more try.")
-#                 msg = await client.wait_for('message', check=lambda
-#                     message: message.author == ctx.author, timeout=10)
-#                 msg = msg.content.capitalize()
-#             await ctx.send("What week? Please enter a number.")
-#             week = await client.wait_for('message', check=lambda
-#                 message: message.author == ctx.author, timeout=10)
-#         if week:
-#             week = week.content
-#             if len(week) > 2:
-#                 await ctx.send("Wait a second, did you enter a number?"
-#                                " Please try again!")
-#                 week = await client.wait_for('message', check=lambda \
-#                         message: message.author == ctx.author, timeout=10)
-#                 week = int(week.content)
-#             start = time.perf_counter()
-#             msg = msg.capitalize()
-#             # print("it's week " + week + " and the requestor is " + msg + ".")
-#             week = int(week)
-#             # print(goober_scores)
-#             await ctx.channel.send(goober_index.print_goober_index(week,
-#                                                                    goober_scores[week][msg][0],
-#                                                                    goober_scores[week][msg][1],
-#                                                                    goober_scores[week][msg][2]))
-#             print("Goober index took " + str(time.perf_counter() - start) + " seconds.")
+@client.command(brief="how many more points could you have scored?")
+async def goober(ctx):
+    week = None
+    try:
+        await ctx.send("What's your name?")
+        msg = await client.wait_for('message', check=lambda
+            message: message.author == ctx.author, timeout=10)
+        if msg:
+            msg = msg.content
+            if msg.capitalize() not in ournames:
+                await ctx.send("I'm sorry, I don't recognize that name. "
+                               "You get one more try.")
+                msg = await client.wait_for('message', check=lambda
+                    message: message.author == ctx.author, timeout=10)
+                msg = msg.content.capitalize()
+            await ctx.send("What week? Please enter a number.")
+            week = await client.wait_for('message', check=lambda
+                message: message.author == ctx.author, timeout=10)
+        if week:
+            week = week.content
+            if len(week) > 2:
+                await ctx.send("Wait a second, did you enter a number?"
+                               " Please try again!")
+                week = await client.wait_for('message', check=lambda \
+                        message: message.author == ctx.author, timeout=10)
+                week = int(week.content)
+            start = time.perf_counter()
+            msg = msg.capitalize()
+            # print("it's week " + week + " and the requestor is " + msg + ".")
+            week = int(week)
+            # print(goober_scores)
+            await ctx.channel.send(goober_index.print_goober_index(week,
+                                                                   goober_scores[week][msg][0],
+                                                                   goober_scores[week][msg][1],
+                                                                   goober_scores[week][msg][2]))
+            print("Goober index took " + str(time.perf_counter() - start) + " seconds.")
 
-#     except asyncio.TimeoutError:
-#         await ctx.send('TOO SLOW!')
-
-
-# @client.command(brief="AKERS OR NAH??")
-# async def starters(ctx):
-#     try:
-#         await ctx.send("What's your name?")
-#         msg = await client.wait_for('message', check=lambda \
-#                 message: message.author == ctx.author, timeout=10)
-#         position = None
-#         if msg:
-#             msg = msg.content
-#             if msg.capitalize() not in ournames:
-#                 await ctx.send("I'm sorry, I don't recognize that name. "
-#                                "You get one more try.")
-#                 msg = await client.wait_for('message', check=lambda \
-#                         message: message.author == ctx.author, timeout=10)
-#                 msg = msg.content
-#             await ctx.send("What position?")
-#             position = await client.wait_for('message', check=lambda \
-#                     message: message.author == ctx.author, timeout=10)
-#         if position:
-#             position = position.content
-#             if position not in positions:
-#                 # print(position, positions)
-#                 await ctx.send("I'm sorry, I don't recognize that position. "
-#                                "You get one more try.")
-#                 position = await client.wait_for('message', check=lambda \
-#                         message: message.author == ctx.author, timeout=10)
-#                 position = position.content
-#             if position.lower() == 'flex':
-#                 await ctx.channel.send(flex_squads.pick_flex(msg, flexable_players))
-#             else:
-#                 await ctx.channel.send(starterpick.who_start(msg, position, nested_dict))
-
-#     except asyncio.TimeoutError:
-#         await ctx.send('TOO SLOW!')
+    except asyncio.TimeoutError:
+        await ctx.send('TOO SLOW!')
 
 
-# @client.command(name="8ball", brief="da bot knows everything")
-# async def _8ball(ctx):
-#     await ctx.send(random.choice(answers))
+@client.command(brief="AKERS OR NAH??")
+async def starters(ctx):
+    try:
+        await ctx.send("What's your name?")
+        msg = await client.wait_for('message', check=lambda \
+                message: message.author == ctx.author, timeout=10)
+        position = None
+        if msg:
+            msg = msg.content
+            if msg.capitalize() not in ournames:
+                await ctx.send("I'm sorry, I don't recognize that name. "
+                               "You get one more try.")
+                msg = await client.wait_for('message', check=lambda \
+                        message: message.author == ctx.author, timeout=10)
+                msg = msg.content
+            await ctx.send("What position?")
+            position = await client.wait_for('message', check=lambda \
+                    message: message.author == ctx.author, timeout=10)
+        if position:
+            position = position.content
+            if position not in positions:
+                # print(position, positions)
+                await ctx.send("I'm sorry, I don't recognize that position. "
+                               "You get one more try.")
+                position = await client.wait_for('message', check=lambda \
+                        message: message.author == ctx.author, timeout=10)
+                position = position.content
+            if position.lower() == 'flex':
+                await ctx.channel.send(flex_squads.pick_flex(msg, flexable_players))
+            else:
+                await ctx.channel.send(starterpick.who_start(msg, position, nested_dict))
+
+    except asyncio.TimeoutError:
+        await ctx.send('TOO SLOW!')
 
 
-# @client.command(brief="stop typing '!injuries scott' u jerks")
-# async def injuries(ctx, name):
-#     name = name.title()
-#     await ctx.channel.send(injured_player.injury(name, league))
+@client.command(name="8ball", brief="da bot knows everything")
+async def _8ball(ctx):
+    await ctx.send(random.choice(answers))
 
 
-# @client.command(brief="BOOOOOOO DESCRIPTIONS BOOOOOOOOOO")
-# async def boo(ctx, *msg):
-#     await ctx.send("BOOOOO " + (("{}".format(" ".join(msg))).upper()) + " BOOOOOOOOO!")
+@client.command(brief="stop typing '!injuries scott' u jerks")
+async def injuries(ctx, name):
+    name = name.title()
+    await ctx.channel.send(injured_player.injury(name, league))
 
 
-# @client.command(brief="made a doodoo dunderhead move? type the player's name ")
-# async def shoulda(ctx, *msg):
-#     await ctx.send("Damn, I should have started " + ((("{}".format(" ".join(msg))).title()) + "."))
+@client.command(brief="BOOOOOOO DESCRIPTIONS BOOOOOOOOOO")
+async def boo(ctx, *msg):
+    await ctx.send("BOOOOO " + (("{}".format(" ".join(msg))).upper()) + " BOOOOOOOOO!")
 
 
-# @client.command(brief="type a player's name and see his average points. wow :)")
-# async def points(ctx, *msg):
-#     name = ("{}".format(" ".join(msg)))
-#     await ctx.send((stats_pull.average_points(name, league)))
+@client.command(brief="made a doodoo dunderhead move? type the player's name ")
+async def shoulda(ctx, *msg):
+    await ctx.send("Damn, I should have started " + ((("{}".format(" ".join(msg))).title()) + "."))
 
 
-# @client.command(brief="power rankings aka who's close to Arvin")
-# async def power(ctx):
-#     await ctx.send(power_rankings.stonks(league))
+@client.command(brief="type a player's name and see his average points. wow :)")
+async def points(ctx, *msg):
+    name = ("{}".format(" ".join(msg)))
+    await ctx.send((stats_pull.average_points(name, league)))
 
 
-# @client.command(brief="gives you average points 'n' stuff")
-# async def scoring(ctx, name):
-#     name = name.title()
-#     await ctx.send(points_stuff.points(name, league))
+@client.command(brief="power rankings aka who's close to Arvin")
+async def power(ctx):
+    await ctx.send(power_rankings.stonks(league))
 
 
-# @client.command(brief='just repeats your message lol')
-# async def chevy(ctx, *msg):
-#     msg = ("{}".format(" ".join(msg)))
-#     await ctx.send(msg)
+@client.command(brief="gives you average points 'n' stuff")
+async def scoring(ctx, name):
+    name = name.title()
+    await ctx.send(points_stuff.points(name, league))
 
 
-# @client.command(brief="ok this one will take work")
-# async def trade(ctx):
-#     await ctx.send('hi')
+@client.command(brief='just repeats your message lol')
+async def chevy(ctx, *msg):
+    msg = ("{}".format(" ".join(msg)))
+    await ctx.send(msg)
 
 
-# @client.event
-# async def on_message(message):
-#     if message.author == client.user:
-#         return
-#     message.content = message.content.lower()
+@client.command(brief="ok this one will take work")
+async def trade(ctx):
+    await ctx.send('hi')
 
-#     # kindness
-#     if 'thank' in message.content:
-#         await message.channel.send("Ain't no thang, gurl")
-#     if any(word in message.content for word in sup):
-#         await message.channel.send(random.choice(friendly_answers))
-#     if any(word in message.content for word in byez):
-#         await message.channel.send(random.choice(bye))
 
-#     # good bot bad bot
-#     if 'good bot' in message.content:
-#         await message.channel.send('You know it.')
-#     if 'bad bot' in message.content:
-#         await message.channel.send('no u')
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    message.content = message.content.lower()
 
-#     # henry and king henry stuff
-#     if 'king henry' in message.content:
-#         await message.channel.send("\U0001F451")
-#     elif ('henry henry henry') in message.content:
-#         await message.channel.send("KING KING KING!")
-#     elif ('king king king') in message.content:
-#         await message.channel.send("HENRY HENRY HENRY!")
-#     elif ('henry') in message.content:
-#         await message.channel.send("That's King Henry to you.")
+    # kindness
+    if 'thank' in message.content:
+        await message.channel.send("Ain't no thang, gurl")
+    if any(word in message.content for word in sup):
+        await message.channel.send(random.choice(friendly_answers))
+    if any(word in message.content for word in byez):
+        await message.channel.send(random.choice(bye))
 
-#     # random stuff
-#     if ('kelce') in message.content:
-#         await message.channel.send("Ben, why didn't you draft me instead? \U0001F97A")
-#     if ('fumble') in message.content:
-#         await message.channel.send(file=discord.File('zeke.jpg'))
-#     # if('qb') in message.content:
-#     #     await message.channel.send(file=discord.File('manningface.jpg'))
-#     if 'veto' in message.content:
-#         text = spongemock.sponge(message.content)
-#         await message.channel.send(text)
-#     #    if('trade') in message.content:
-#     #        await message.channel.send(file=discord.File('no trades.jpg'))
-#     #        await message.channel.send("ok fine yes trades")
-#     # if any(word in message.content for word in questions) \
-#     #         and any(thing in message.content for thing in qbeez):
-#     #     await message.channel.send(random_qb.which_qb())
-#     # elif any(word in message.content for word in questions) \
-#     #         and any(thing in message.content for thing in rbeez):
-#     #     await message.channel.send(random_rb.which_rb())
-#     # if any(word in message.content for word in questions) \
-#     #         and any(thing in message.content for thing in winloss):
-#     #     await message.channel.send(random_player.which_player())
-#     if any(word in message.content for word in swears):
-#         if message.channel.id == 883758150287757322:
-#             return
-#         else:
-#             await message.channel.send(file=discord.File('watchyourprofanity.gif'))
-#     if ('ass') in message.content:
-#         if message.channel.id == 883758150287757322:
-#             return
-#         else:
-#             if len(message.content) == 3:
-#                 await message.channel.send(file=discord.File('watchyourprofanity.gif'))
-#     await client.process_commands(message)
+    # good bot bad bot
+    if 'good bot' in message.content:
+        await message.channel.send('You know it.')
+    if 'bad bot' in message.content:
+        await message.channel.send('no u')
+
+    # henry and king henry stuff
+    if 'king henry' in message.content:
+        await message.channel.send("\U0001F451")
+    elif ('henry henry henry') in message.content:
+        await message.channel.send("KING KING KING!")
+    elif ('king king king') in message.content:
+        await message.channel.send("HENRY HENRY HENRY!")
+    elif ('henry') in message.content:
+        await message.channel.send("That's King Henry to you.")
+
+    # random stuff
+    if ('kelce') in message.content:
+        await message.channel.send("Ben, why didn't you draft me instead? \U0001F97A")
+    if ('fumble') in message.content:
+        await message.channel.send(file=discord.File('zeke.jpg'))
+    # if('qb') in message.content:
+    #     await message.channel.send(file=discord.File('manningface.jpg'))
+    if 'veto' in message.content:
+        text = spongemock.sponge(message.content)
+        await message.channel.send(text)
+    #    if('trade') in message.content:
+    #        await message.channel.send(file=discord.File('no trades.jpg'))
+    #        await message.channel.send("ok fine yes trades")
+    # if any(word in message.content for word in questions) \
+    #         and any(thing in message.content for thing in qbeez):
+    #     await message.channel.send(random_qb.which_qb())
+    # elif any(word in message.content for word in questions) \
+    #         and any(thing in message.content for thing in rbeez):
+    #     await message.channel.send(random_rb.which_rb())
+    # if any(word in message.content for word in questions) \
+    #         and any(thing in message.content for thing in winloss):
+    #     await message.channel.send(random_player.which_player())
+    if any(word in message.content for word in swears):
+        if message.channel.id == 883758150287757322:
+            return
+        else:
+            await message.channel.send(file=discord.File('watchyourprofanity.gif'))
+    if ('ass') in message.content:
+        if message.channel.id == 883758150287757322:
+            return
+        else:
+            if len(message.content) == 3:
+                await message.channel.send(file=discord.File('watchyourprofanity.gif'))
+    await client.process_commands(message)
 
 
 client.run(os.getenv('DISCORD_TOKEN'))
