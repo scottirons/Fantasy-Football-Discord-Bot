@@ -61,7 +61,7 @@ name_and_id = {}
 
 for team in league.teams:
     teams.append(team.team_name)
-    name_and_id[team.name] = team.team_id
+    name_and_id[team.team_name] = team.team_id
 print(name_and_id)
 
 for team in league.teams:
