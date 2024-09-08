@@ -85,7 +85,7 @@ id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 5: 'Patrick', 6: 'Smith', 8: 
                10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
 flexable_players = flex_squads.make_position_dict(league)
-season_start = date(2023, 9, 7)
+season_start = date(2024, 9, 5)
 goober_scores = goober_index.full_goob(league, get_current_week())
 
 
@@ -94,45 +94,45 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
 
-# @client.command(brief="update data more easily")
-# async def update(ctx):
-#     start_time = time.perf_counter()
-#     global league, nested_dict, flexable_players, goober_scores
-#     league = League(league_id=41302936, year=2024, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
-#                                                            'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G'
-#                                                            '%2F2zGVo%2BKM0YtL1At' \
-#                                                            'pcN2ZiLNyhIMeCr7BvYd056vhbRRX3nwd'
-#                                                            '%2Fxq23R9w7bwyDhyIH5sMxVBOur690YldBTTCLJZjbHk' \
-#                                                            'rUg0tA6kcD3wtCiP8CICrQmezMZBSpu6dad61FwoAIJSNo2'
-#                                                            'NqexL5627uGt%2BXX9f9SFK6EcqNk2z7' \
-#                                                            'F5%2BANM5Es9oNA8MI0Wz9a8Wt',
-#                     swid='{F713A680-D381-43C3-93A6-80D38113C33C}')
+@client.command(brief="update data more easily")
+async def update(ctx):
+    start_time = time.perf_counter()
+    global league, nested_dict, flexable_players, goober_scores
+    league = League(league_id=41302936, year=2024, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
+                                                           'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G'
+                                                           '%2F2zGVo%2BKM0YtL1At' \
+                                                           'pcN2ZiLNyhIMeCr7BvYd056vhbRRX3nwd'
+                                                           '%2Fxq23R9w7bwyDhyIH5sMxVBOur690YldBTTCLJZjbHk' \
+                                                           'rUg0tA6kcD3wtCiP8CICrQmezMZBSpu6dad61FwoAIJSNo2'
+                                                           'NqexL5627uGt%2BXX9f9SFK6EcqNk2z7' \
+                                                           'F5%2BANM5Es9oNA8MI0Wz9a8Wt',
+                    swid='{F713A680-D381-43C3-93A6-80D38113C33C}')
 
-#     nested_dict = {}
-#     teams = []
+    nested_dict = {}
+    teams = []
 
-#     for team in league.teams:
-#         teams.append(team.team_name)
+    for team in league.teams:
+        teams.append(team.team_name)
 
-#     for team in league.teams:
-#         nested_dict.setdefault(team.team_name, [])
+    for team in league.teams:
+        nested_dict.setdefault(team.team_name, [])
 
-#         players = team.roster
+        players = team.roster
 
-#         names = []
-#         for player in players:
-#             name = player.name
-#             names.append(name)
+        names = []
+        for player in players:
+            name = player.name
+            names.append(name)
 
-#         pos_name = {}
-#         for player in players:
-#             pos_name.setdefault(player.position, []).append(player.name)
-#         nested_dict.setdefault(team.team_name, []).append(pos_name)
+        pos_name = {}
+        for player in players:
+            pos_name.setdefault(player.position, []).append(player.name)
+        nested_dict.setdefault(team.team_name, []).append(pos_name)
 
-#     nested_dict = dict(zip(ournames, list(nested_dict.values())))
-#     flexable_players = flex_squads.make_position_dict(league)
-#     goober_scores = goober_index.full_goob(league, get_current_week())
-#     print(f"League and positions updated in {time.perf_counter() - start_time} seconds")
+    nested_dict = dict(zip(ournames, list(nested_dict.values())))
+    flexable_players = flex_squads.make_position_dict(league)
+    goober_scores = goober_index.full_goob(league, get_current_week())
+    print(f"League and positions updated in {time.perf_counter() - start_time} seconds")
 
 
 # @client.command(brief="Who was the goobiest goober?")
