@@ -58,6 +58,7 @@ league = League(league_id=41302936, year=2024, espn_s2='AEBZs%2F0JhLRPJvsLxD28Ba
 nested_dict = {}
 teams = []
 
+
 for team in league.teams:
     teams.append(team.team_name)
 
@@ -143,10 +144,10 @@ async def gooberreport(ctx):
         if msg:
             try:
                 week = int(msg.content)
-                await ctx.send(goober_index.goober_report(week, goober_scores))
+                await ctx.send(goober_index.goober_report(max(week, 1), goober_scores))
             except ValueError:
                 await ctx.send("That's not a number, you non-rule-follower. I'll just show the current week's report.")
-                await ctx.send(goober_index.goober_report(get_current_week() - 1, goober_scores))
+                await ctx.send(goober_index.goober_report(max(get_current_week() - 1, 1), goober_scores))
     except asyncio.TimeoutError:
         await ctx.send("TOO SLOW! Here's this past week's goober report.")
         await ctx.send(goober_index.goober_report(get_current_week() - 1, goober_scores))
