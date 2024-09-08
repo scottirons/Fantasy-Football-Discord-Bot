@@ -26,6 +26,8 @@ def get_current_week():
     days = difference.days
     return days // 7 + 1
 
+print(get_current_week)
+
 
 questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
