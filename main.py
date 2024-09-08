@@ -61,7 +61,7 @@ name_and_id = {}
 
 for team in league.teams:
     teams.append(team.team_name)
-    name_and_id[team.name] = team.id
+    name_and_id[team.name] = team.team_id
 print(name_and_id)
 
 for team in league.teams:
@@ -81,8 +81,8 @@ for team in league.teams:
         pos_name.setdefault(player.position, []).append(player.name)
     nested_dict.setdefault(team.team_name, []).append(pos_name)
 
-ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Smith', 'Robert', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
-            'Baker']
+ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'Brendan', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
+            'David']
 # positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
 # id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 5: 'Patrick', 6: 'Smith', 8: 'Robert',
 #                10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
