@@ -140,6 +140,7 @@ async def update(ctx):
 async def gooberreport(ctx):
     if get_current_week() == 1:
         await ctx.send("Please wait until week 1 is over before goobology can be determined.")
+        return
     try:
         await ctx.send("Which week's goober report do you want?")
         msg = await client.wait_for('message', check=lambda message: message.author == ctx.author, timeout=4)
@@ -163,6 +164,7 @@ async def gooberreport(ctx):
 async def goober(ctx):
     if get_current_week() == 1:
         await ctx.send("Please wait until week 1 is over before goobology can be determined.")
+        return
     week = None
     try:
         await ctx.send("What's your name?")
