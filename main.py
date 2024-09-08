@@ -57,12 +57,9 @@ league = League(league_id=41302936, year=2024, espn_s2='AEBZs%2F0JhLRPJvsLxD28Ba
 
 nested_dict = {}
 teams = []
-name_and_id = {}
 
 for team in league.teams:
     teams.append(team.team_name)
-    name_and_id[team.team_name] = team.team_id
-print(name_and_id)
 
 for team in league.teams:
     nested_dict.setdefault(team.team_name, [])

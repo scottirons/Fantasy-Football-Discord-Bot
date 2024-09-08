@@ -1,8 +1,8 @@
 from collections import defaultdict
 import heapq
 
-id_and_name = {'Arvin': 1, 'Liam': 2, 'Cooper': 3, 'Patrick': 5, 'Smith': 6, 'Robert': 8, 'Jon': 10, 'Scott': 11,
-               'Kyle': 12, 'Phoenix': 13, 'Nick': 14, 'Baker': 15}
+id_and_name = {'Arvin': 1, 'Liam': 2, 'Cooper': 3, 'Patrick': 5, 'Brendan': 6, 'Sean': 8, 'Jon': 10, 'Scott': 11,
+               'Kyle': 12, 'Phoenix': 13, 'Nick': 14, 'David': 15}
 our_names = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'David', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
             'Brendan']
 
