@@ -77,6 +77,7 @@ def full_goob(league, current_week):
     for week in range(1, current_week):
         for name in our_names:
             full_goob_dict[week][name] = max_points(name, week, league)
+    print(full_goob_dict)
 
     return full_goob_dict
 
