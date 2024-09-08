@@ -26,8 +26,6 @@ def get_current_week():
     days = difference.days
     return days // 7 + 1
 
-print(get_current_week)
-
 
 questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
@@ -140,6 +138,8 @@ async def update(ctx):
 
 @client.command(brief="Who was the goobiest goober?")
 async def gooberreport(ctx):
+    if get_current_week() == 1:
+        await ctx.send("Please wait until week 1 is over before goobology can be determined.")
     try:
         await ctx.send("Which week's goober report do you want?")
         msg = await client.wait_for('message', check=lambda message: message.author == ctx.author, timeout=4)
@@ -161,6 +161,8 @@ async def gooberreport(ctx):
 
 @client.command(brief="how many more points could you have scored?")
 async def goober(ctx):
+    if get_current_week() == 1:
+        await ctx.send("Please wait until week 1 is over before goobology can be determined.")
     week = None
     try:
         await ctx.send("What's your name?")
