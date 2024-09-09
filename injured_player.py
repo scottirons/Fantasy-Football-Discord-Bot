@@ -3,7 +3,6 @@ from injuries import injured_dict
 
 def injury(person, league):
     nested_dict = injured_dict(league)  # create the dictionary i think
-    print(nested_dict)
 
     person = person.title()
     if person not in nested_dict:
@@ -14,6 +13,7 @@ def injury(person, league):
         questionable = []
         doubtful = []
         counter = 1
+        print(nested_dict[person])
         try:
             doubtful += (nested_dict[person][0]['DOUBTFUL'])
         except:
