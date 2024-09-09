@@ -1,8 +1,10 @@
 
 from datetime import date
 
-ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Smith', 'Robert', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
-            'Baker']
+id_and_name = {'Arvin': 1, 'Liam': 2, 'Cooper': 3, 'Patrick': 5, 'Brendan': 6, 'Sean': 8, 'Jon': 10, 'Scott': 11,
+               'Kyle': 12, 'Phoenix': 13, 'Nick': 14, 'David': 15}
+ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'David', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
+            'Brendan']
 
 
 # print(teams[0])

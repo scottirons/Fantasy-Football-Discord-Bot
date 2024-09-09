@@ -5,7 +5,7 @@ from datetime import date
 
 # find current week so it'll pull the right stats
 def make_points_dict(league):
-    season_start = date(2023, 9, 7)
+    season_start = date(2024, 9, 5)
     today = date.today()
     difference = today - season_start
     days = difference.days
