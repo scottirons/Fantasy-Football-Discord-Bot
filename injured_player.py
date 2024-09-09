@@ -13,7 +13,6 @@ def injury(person, league):
         questionable = []
         doubtful = []
         counter = 1
-        print(nested_dict[person])
         try:
             doubtful += (nested_dict[person][0]['DOUBTFUL'])
         except:
