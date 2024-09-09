@@ -44,7 +44,7 @@ def average_points(name, league):
     name = name.lower()
     dict = make_points_dict(league)
 
-    first_tuesday = date(2023, 9, 12)
+    first_tuesday = date(2024, 9, 10)
     today = date.today()
     difference = today - first_tuesday
     days = difference.days

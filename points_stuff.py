@@ -3,8 +3,8 @@ from datetime import date
 
 id_and_name = {'Arvin': 1, 'Liam': 2, 'Cooper': 3, 'Patrick': 5, 'Brendan': 6, 'Sean': 8, 'Jon': 10, 'Scott': 11,
                'Kyle': 12, 'Phoenix': 13, 'Nick': 14, 'David': 15}
-ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'David', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
-            'Brendan']
+ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Brendan', 'Sean', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
+            'David']
 
 
 # print(teams[0])
