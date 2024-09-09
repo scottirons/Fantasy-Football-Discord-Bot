@@ -4,7 +4,7 @@ def injured_dict(league):
     ournames = []
     for team in league.teams:
         teams.append(team.team_name)
-        ournames.append(team.team.owners[0])
+        ournames.append(team.owners[0])
     print(ournames)
 
     for team in league.teams:
