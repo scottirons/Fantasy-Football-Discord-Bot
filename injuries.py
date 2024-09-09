@@ -5,11 +5,9 @@ def injured_dict(league):
     for team in league.teams:
         teams.append(team.team_name)
         ournames.append(team.owners[0]['firstName'])
-    print(ournames)
 
     for team in league.teams:
         nested_dict.setdefault(team.team_name, [])
-        # print(team.team_name)
 
         players = team.roster
 
