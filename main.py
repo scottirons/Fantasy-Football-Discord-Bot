@@ -1,5 +1,4 @@
-from datetime import date
-
+import datetime
 import discord
 import os
 import spongemock
@@ -21,9 +20,13 @@ load_dotenv()
 
 
 def get_current_week():
-    today = date.today()
+    today = datetime.now()
     difference = today - season_start
     days = difference.days
+    
+    if today.weekday() == 0 and today.time() < time(23, 59, 59):
+        days -= 1  
+        
     return days // 7 + 1
 
 
@@ -86,7 +89,7 @@ ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'Brendan', 'Jon', 'Sco
 #                10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
 flexable_players = flex_squads.make_position_dict(league)
-season_start = date(2024, 9, 5)
+season_start = datetime.date(2024, 9, 9)
 goober_scores = goober_index.full_goob(league, get_current_week())
 
 
