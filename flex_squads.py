@@ -7,14 +7,7 @@ our_names = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'David', 'Jon', 'Scot
             'Brendan']
 
 
-def make_position_dict(league):
-
-    # set target date at end of week 1, then use this to automatically tabulate the current week
-    season_start = date(2023, 9, 7)
-    today = date.today()
-    difference = today-season_start
-    days = difference.days
-    week = days//7 + 2
+def make_position_dict(league, week):
 
     # now make list of startable flex players either in flex or on bench
     box_scores = league.box_scores(week)

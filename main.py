@@ -18,18 +18,11 @@ from espn_api.football import League
 
 load_dotenv()
 
-season_start = datetime(2024, 9, 9)
+season_start = date(2024, 9, 10)
 def get_current_week():
-    today = datetime.now()
-    difference = today - season_start
-    days = difference.days
+    difference = date.today() - season_start
+    return difference.days // 7 + 2
     
-    if today.weekday() == 0 and today.time() < time(23, 59, 59):
-        days -= 1  
-        
-    return days // 7 + 1
-
-
 questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
 qbeez = {'qb', 'quarterback'}
@@ -85,7 +78,7 @@ for team in league.teams:
 ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'Brendan', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
             'David']
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
-flexable_players = flex_squads.make_position_dict(league)
+flexable_players = flex_squads.make_position_dict(league, get_current_week())
 
 goober_scores = goober_index.full_goob(league, get_current_week())
 
