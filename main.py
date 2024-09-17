@@ -18,10 +18,7 @@ from espn_api.football import League
 
 load_dotenv()
 
-season_start = date(2024, 9, 10)
-def get_current_week():
-    difference = date.today() - season_start
-    return difference.days // 7 + 2
+current_week = (date.today() - date(2024, 9, 10)) // 7 + 2
     
 questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
@@ -78,9 +75,9 @@ for team in league.teams:
 ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'Brendan', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
             'David']
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
-flexable_players = flex_squads.make_position_dict(league, get_current_week())
+flexable_players = flex_squads.make_position_dict(league, current_week)
 
-goober_scores = goober_index.full_goob(league, get_current_week())
+goober_scores = goober_index.full_goob(league, current_week)
 
 
 @client.event
@@ -125,7 +122,7 @@ async def update(ctx):
 
     nested_dict = dict(zip(ournames, list(nested_dict.values())))
     flexable_players = flex_squads.make_position_dict(league)
-    goober_scores = goober_index.full_goob(league, get_current_week())
+    goober_scores = goober_index.full_goob(league, current_week)
     print(f'League and positions updated in {time.perf_counter() - start_time} seconds')
 
 
@@ -143,10 +140,10 @@ async def gooberreport(ctx):
                 await ctx.send(goober_index.goober_report(max(week, 1), goober_scores))
             except ValueError:
                 await ctx.send("That's not a number, you non-rule-follower. I'll just show the current week's report.")
-                await ctx.send(goober_index.goober_report(max(get_current_week() - 1, 1), goober_scores))
+                await ctx.send(goober_index.goober_report(max(current_week - 1, 1), goober_scores))
     except asyncio.TimeoutError:
         await ctx.send("TOO SLOW! Here's this past week's goober report.")
-        await ctx.send(goober_index.goober_report(get_current_week() - 1, goober_scores))
+        await ctx.send(goober_index.goober_report(current_week - 1, goober_scores))
     await ctx.send("The goober report currently doesn't take into account which matchups were lost by extreme "
                    "goobosity and whether lower goober indices even correlate with won matchups, but that's coming "
                    "soon\u2122")
@@ -305,7 +302,7 @@ async def scoring(ctx):
                     message: message.author == ctx.author, timeout=10)
                 msg = msg.content.capitalize()
         if msg:
-            await ctx.send(points_stuff.points(msg, league, get_current_week() - 1))
+            await ctx.send(points_stuff.points(msg, league, current_week - 1))
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
     
