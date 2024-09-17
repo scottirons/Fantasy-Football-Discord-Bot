@@ -305,7 +305,7 @@ async def scoring(ctx):
                     message: message.author == ctx.author, timeout=10)
                 msg = msg.content.capitalize()
         if msg:
-            await ctx.send(points_stuff.points(msg, league))
+            await ctx.send(points_stuff.points(msg, league, get_current_week() - 1))
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
     

@@ -9,13 +9,8 @@ ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Brendan', 'Sean', 'Jon', 'Sco
 
 # print(teams[0])
 
-def points(player, league):
+def points(player, league, week):
     teams = league.teams
-    first_tuesday = date(2023, 9, 12)
-    today = date.today()
-    difference = today - first_tuesday
-    days = difference.days
-    week = days // 7 + 1
 
     print("it's week " + str(week))
 
