@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, date
 import discord
 import os
 import spongemock
@@ -20,7 +20,7 @@ load_dotenv()
 
 
 def get_current_week():
-    today = datetime.now()
+    today = datetime.datetime.now()
     difference = today - season_start
     days = difference.days
     
@@ -86,7 +86,7 @@ ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'Brendan', 'Jon', 'Sco
             'David']
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
 flexable_players = flex_squads.make_position_dict(league)
-season_start = datetime.date(2024, 9, 9)
+season_start = date(2024, 9, 9)
 goober_scores = goober_index.full_goob(league, get_current_week())
 
 
