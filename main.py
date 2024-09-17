@@ -275,7 +275,7 @@ async def playerpoints(ctx):
         name = await client.wait_for('message', check=lambda
             message: message.author == ctx.author, timeout=10)
         if name:
-            await ctx.send((stats_pull.average_points(name, league)))
+            await ctx.send((stats_pull.average_points(name.content, league)))
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
     
