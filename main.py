@@ -126,7 +126,7 @@ async def update(ctx):
     nested_dict = dict(zip(ournames, list(nested_dict.values())))
     flexable_players = flex_squads.make_position_dict(league)
     goober_scores = goober_index.full_goob(league, get_current_week())
-    print(f"League and positions updated in {time.perf_counter() - start_time} seconds")
+    print(f'League and positions updated in {time.perf_counter() - start_time} seconds')
 
 
 @client.command(brief="Who was the goobiest goober?")
@@ -166,8 +166,8 @@ async def goober(ctx):
         if msg:
             msg = msg.content
             if msg.capitalize() not in ournames:
-                await ctx.send(f"I'm sorry, I don't recognize that name. "
-                               "Please pick one of the following names: {ournames}")
+                await ctx.send("I'm sorry, I don't recognize that name. "
+                               f"Please pick one of the following names: {ournames}")
                 msg = await client.wait_for('message', check=lambda
                     message: message.author == ctx.author, timeout=10)
                 msg = msg.content.capitalize()
@@ -248,8 +248,8 @@ async def injuries(ctx):
         if msg:
             msg = msg.content
             if msg.capitalize() not in ournames:
-                await ctx.send(f"I'm sorry, I don't recognize that name. "
-                               "Please pick one of the following names: {ournames}")
+                await ctx.send("I'm sorry, I don't recognize that name. "
+                               f"Please pick one of the following names: {ournames}")
                 msg = await client.wait_for('message', check=lambda
                     message: message.author == ctx.author, timeout=10)
                 msg = msg.content.capitalize()
@@ -299,8 +299,8 @@ async def scoring(ctx):
         if msg:
             msg = msg.content
             if msg.capitalize() not in ournames:
-                await ctx.send(f"I'm sorry, I don't recognize that name. "
-                               "Please pick one of the following names: {ournames}")
+                await ctx.send("I'm sorry, I don't recognize that name. "
+                               f"Please pick one of the following names: {ournames}")
                 msg = await client.wait_for('message', check=lambda
                     message: message.author == ctx.author, timeout=10)
                 msg = msg.content.capitalize()
