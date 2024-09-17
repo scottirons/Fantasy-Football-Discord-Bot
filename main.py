@@ -46,7 +46,7 @@ friendly_answers = ['suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doo
                     'heyyy \U0001F609', 'how u doin']
 byez = {'bye', 'good night', 'see you', 'toodles'}
 bye = ['toodles', 'bye gurl', 'see ya later, alligator', 'in a while, crocodile', 'peace out, Boy Scout']
-swears = {'fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura'}
+swears = {'fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'laura', 'lassen'}
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -84,9 +84,6 @@ for team in league.teams:
 
 ournames = ['Arvin', 'Liam', 'Cooper', 'Patrick', 'Sean', 'Brendan', 'Jon', 'Scott', 'Kyle', 'Phoenix', 'Nick',
             'David']
-# positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
-# id_and_name = {1: 'Arvin', 2: 'Liam', 3: 'Cooper', 5: 'Patrick', 6: 'Smith', 8: 'Robert',
-#                10: 'Jon', 11: 'Scott', 12: 'Kyle', 13: 'Phoenix', 14: 'Nick', 15: 'Baker'}
 nested_dict = dict(zip(ournames, list(nested_dict.values())))
 flexable_players = flex_squads.make_position_dict(league)
 season_start = datetime.date(2024, 9, 9)
@@ -176,8 +173,8 @@ async def goober(ctx):
         if msg:
             msg = msg.content
             if msg.capitalize() not in ournames:
-                await ctx.send("I'm sorry, I don't recognize that name. "
-                               "You get one more try.")
+                await ctx.send(f"I'm sorry, I don't recognize that name. "
+                               "Please pick one of the following names: {ournames}")
                 msg = await client.wait_for('message', check=lambda
                     message: message.author == ctx.author, timeout=10)
                 msg = msg.content.capitalize()
@@ -248,10 +245,26 @@ async def _8ball(ctx):
     await ctx.send(random.choice(answers))
 
 
-@client.command(brief="stop typing '!injuries scott' u jerks")
-async def injuries(ctx, name):
-    name = name.title()
-    await ctx.channel.send(injured_player.injury(name, league))
+@client.command(brief="stop typing '!injuries liam' u jerks")
+async def injuries(ctx):
+    msg = None
+    try:
+        await ctx.send("What's your name?")
+        msg = await client.wait_for('message', check=lambda
+            message: message.author == ctx.author, timeout=10)
+        if msg:
+            msg = msg.content
+            if msg.capitalize() not in ournames:
+                await ctx.send(f"I'm sorry, I don't recognize that name. "
+                               "Please pick one of the following names: {ournames}")
+                msg = await client.wait_for('message', check=lambda
+                    message: message.author == ctx.author, timeout=10)
+                msg = msg.content.capitalize()
+        if msg:
+            await ctx.channel.send(injured_player.injury(msg, league))
+    except asyncio.TimeoutError:
+        await ctx.send('TOO SLOW!')
+    
 
 
 @client.command(brief="BOOOOOOO DESCRIPTIONS BOOOOOOOOOO")
@@ -265,9 +278,17 @@ async def shoulda(ctx, *msg):
 
 
 @client.command(brief="type a player's name and see his average points. wow :)")
-async def points(ctx, *msg):
-    name = ("{}".format(" ".join(msg)))
-    await ctx.send((stats_pull.average_points(name, league)))
+async def playerpoints(ctx):
+    name = None
+    try:
+        await ctx.send("Which player's scoring do you want?")
+        name = await client.wait_for('message', check=lambda
+            message: message.author == ctx.author, timeout=10)
+        if name:
+            await ctx.send((stats_pull.average_points(name, league)))
+    except asyncio.TimeoutError:
+        await ctx.send('TOO SLOW!')
+    
 
 
 @client.command(brief="power rankings aka who's close to Arvin")
@@ -276,9 +297,25 @@ async def power(ctx):
 
 
 @client.command(brief="gives you average points 'n' stuff")
-async def scoring(ctx, name):
-    name = name.title()
-    await ctx.send(points_stuff.points(name, league))
+async def scoring(ctx):
+    msg = None
+    try:
+        await ctx.send("What's your name?")
+        msg = await client.wait_for('message', check=lambda
+            message: message.author == ctx.author, timeout=10)
+        if msg:
+            msg = msg.content
+            if msg.capitalize() not in ournames:
+                await ctx.send(f"I'm sorry, I don't recognize that name. "
+                               "Please pick one of the following names: {ournames}")
+                msg = await client.wait_for('message', check=lambda
+                    message: message.author == ctx.author, timeout=10)
+                msg = msg.content.capitalize()
+        if msg:
+            await ctx.send(points_stuff.points(msg, league))
+    except asyncio.TimeoutError:
+        await ctx.send('TOO SLOW!')
+    
 
 
 @client.command(brief='just repeats your message lol')
