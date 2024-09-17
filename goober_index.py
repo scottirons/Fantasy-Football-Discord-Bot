@@ -69,7 +69,7 @@ def print_goober_index(week, points, max_score, difference):
     return "In week " + str(week) + " you scored " + str(points) + " points.\n" \
                                                                    "You could have scored " + str(
         max_score) + " points.\n" \
-                     "You left " + str(difference) + " points on the table you goober!"
+                     "You left " + str(difference) + " points on the table, you goober!"
 
 
 def full_goob(league, current_week):
