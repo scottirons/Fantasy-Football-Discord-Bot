@@ -20,7 +20,7 @@ load_dotenv()
 
 
 def get_current_week():
-    today = datetime.datetime.now()
+    today = datetime.now()
     difference = today - season_start
     days = difference.days
     
