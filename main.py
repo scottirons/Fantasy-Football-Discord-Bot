@@ -19,7 +19,6 @@ from espn_api.football import League
 load_dotenv()
 
 current_week = (date.today() - date(2024, 9, 10)).days // 7 + 2
-print(f"it is currently week {current_week}")
     
 questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
