@@ -122,7 +122,7 @@ async def update(ctx):
         nested_dict.setdefault(team.team_name, []).append(pos_name)
 
     nested_dict = dict(zip(ournames, list(nested_dict.values())))
-    flexable_players = flex_squads.make_position_dict(league)
+    flexable_players = flex_squads.make_position_dict(league, current_week)
     goober_scores = goober_index.full_goob(league, current_week)
     print(f'League and positions updated in {time.perf_counter() - start_time} seconds')
 
