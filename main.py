@@ -88,7 +88,8 @@ async def on_ready():
 @client.command(brief="update data more easily")
 async def update(ctx):
     start_time = time.perf_counter()
-    global league, nested_dict, flexable_players, goober_scores
+    global league, nested_dict, flexable_players, goober_scores, current_week
+    current_week = (date.today() - date(2024, 9, 10)).days // 7 + 2
     league = League(league_id=41302936, year=2024, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
                                                            'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G'
                                                            '%2F2zGVo%2BKM0YtL1At' \
