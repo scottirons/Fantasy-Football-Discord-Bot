@@ -52,7 +52,8 @@ def make_position_dict(league, week):
 
 def pick_flex(name, flexable_players):
     name = name.title()
-    return 'You should start ' + random.choice(flexable_players[id_and_name[name]]) + '.'
+    p1, p2 = random.sample(flexable_players[id_and_name[name]], 2)
+    return 'You should start ' + p1 + ' and ' + p2 + '.'
 
 # print(pick_flex('scott'))
 # print(flex_squads)

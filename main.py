@@ -16,6 +16,8 @@ import time
 from dotenv import load_dotenv
 from espn_api.football import League
 
+start = time.perf_counter()
+print(f"Starting up the boot process")
 load_dotenv()
 
 current_week = (date.today() - date(2025, 9, 9)).days // 7 + 2
@@ -25,7 +27,7 @@ rbeez = {'rb', 'running back', 'runningback'}
 qbeez = {'qb', 'quarterback'}
 winloss = {'win', 'lose', 'last', 'first'}
 positions = {'k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',
-             'quarterback', 'd/st', 'def', 'defense', 'kicker', 'flex', 'te',
+             'quarterback', 'd/st', 'd/st', 'defense', 'kicker', 'flex', 'te',
              'tight end', 'wr', 'wide receiver'}
 answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely",
            'sleep on it', 'it shall be done', 'my sources say no', 'nah', 'definitely',
@@ -83,6 +85,7 @@ goober_scores = goober_index.full_goob(league, current_week)
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+    print(f'Boot took {round(time.perf_counter() - start, 2)} seconds')
 
 
 @client.command(brief="update data more easily")

@@ -36,29 +36,40 @@ def max_points(name, week, league):
     team = get_team(name, league)
     roster = get_gameday_roster(team, week, league)[0]
     points = round(get_gameday_roster(team, week, league)[1], 2)
-    max_score_dict = {'QB': 0, 'RB1': 0, 'RB2': 0, 'WR1': 0, 'WR2': 0, 'FLEX': 0, 'TE': 0, 'K': 0, 'DEF': 0}
+    max_score_dict = {'QB': 0, 'RB1': 0, 'RB2': 0, 'WR1': 0, 'WR2': 0, 'FLEX1': 0, 'FLEX2': 0, 'TE': 0, 'K': 0, 'D/ST': 0}
     positions = defaultdict(list)
 
     for player in roster:
-        positions[player.position].append(-player.points)
+        positions[player.position].append(player.points)
 
     for position in positions:
-        heapq.heapify(positions[position])
+        positions[position].sort()
 
-    max_score_dict['QB'] = -heapq.heappop(positions['QB'])
-    max_score_dict['RB1'] = -heapq.heappop(positions['RB'])
-    max_score_dict['RB2'] = -heapq.heappop(positions['RB'])
-    max_score_dict['WR1'] = -heapq.heappop(positions['WR'])
-    max_score_dict['WR2'] = -heapq.heappop(positions['WR'])
-    max_score_dict['TE'] = -heapq.heappop(positions['TE'])
-    max_score_dict['K'] = -heapq.heappop(positions['K'])
-    max_score_dict['DEF'] = -heapq.heappop(positions['D/ST'])
-    if positions['WR']:
-        max_score_dict['FLEX'] = max(max_score_dict['FLEX'], -heapq.heappop(positions['WR']))
-    if positions['RB']:
-        max_score_dict['FLEX'] = max(max_score_dict['FLEX'], -heapq.heappop(positions['RB']))
-    if positions['TE']:
-        max_score_dict['FLEX'] = max(max_score_dict['FLEX'], -heapq.heappop(positions['TE']))
+    max_score_dict['QB'] = positions['QB'].pop() if positions['QB'] else 0
+    max_score_dict['RB1'] = positions['RB'].pop() if positions['RB'] else 0
+    max_score_dict['RB2'] = positions['RB'].pop() if positions['RB'] else 0
+    max_score_dict['WR1'] = positions['WR'].pop() if positions['WR'] else 0
+    max_score_dict['WR2'] = positions['WR'].pop() if positions['WR'] else 0
+    max_score_dict['TE'] = positions['TE'].pop() if positions['TE'] else 0
+    max_score_dict['K'] = positions['K'].pop() if positions['K'] else 0
+    max_score_dict['D/ST'] = positions['D/ST'].pop() if positions['D/ST'] else 0
+
+    # find the two highest scoring WR/RB/TE players and put them in flex 1 and 2
+    # I'll just add 2 of each if relevant, sort, and pop the last two that's easiest I think
+    flex_vals = []
+    for _ in range(2):
+        flex_vals.append(positions['WR'].pop() if positions['WR'] else 0)
+
+    for _ in range(2):
+        flex_vals.append(positions['RB'].pop() if positions['RB'] else 0)
+
+    for _ in range(2):
+        flex_vals.append(positions['TE'].pop() if positions['TE'] else 0)
+
+    flex_vals.sort()
+
+    max_score_dict['FLEX1'] = flex_vals.pop() if flex_vals else 0
+    max_score_dict['FLEX2'] = flex_vals.pop() if flex_vals else 0
 
     max_score = round((sum(max_score_dict.values())), 2)
     difference = round((max_score - points), 2)
