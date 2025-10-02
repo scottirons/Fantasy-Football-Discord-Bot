@@ -220,7 +220,19 @@ async def starters(ctx):
             if position.lower() == 'flex':
                 await ctx.channel.send(flex_squads.pick_flex(msg, flexable_players))
             else:
-                await ctx.channel.send(starterpick.who_start(msg, position, nested_dict))
+                response = starterpick.who_start(msg, position, nested_dict)
+                if response == "position does not exist":
+                    await ctx.send("I'm sorry, I don't recognize that position. "
+                                   "You get one more try.")
+                    position = await client.wait_for('message', check=lambda \
+                            message: message.author == ctx.author, timeout=10)
+                    position = position.content
+                    if position.lower() == 'flex':
+                        await ctx.channel.send(flex_squads.pick_flex(msg, flexable_players))
+                    else:
+                        await ctx.channel.send(starterpick.who_start(msg, position, nested_dict))
+                else:
+                    await ctx.channel.send(starterpick.who_start(msg, position, nested_dict))
 
     except asyncio.TimeoutError:
         await ctx.send('TOO SLOW!')
