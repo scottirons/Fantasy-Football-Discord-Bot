@@ -4,9 +4,9 @@ positions = ['QB', 'WR', 'RB', 'TE', 'D/ST', 'K', 'FLEX']
 
 
 def who_start(playername, whatpos, nested_dict):
-    if 'mom' in playername:
+    if 'mom' in whatpos:
         return 'bruh'
-    if 'doggy' in whatpos:
+    if any(t in whatpos for t in {'doggy', 'missionary', 'cow', 'freaky'}):
         return 'bruh'
     if playername.capitalize() not in nested_dict:
         return 'name does not exist'
