@@ -27,12 +27,11 @@ rbeez = {'rb', 'running back', 'runningback'}
 qbeez = {'qb', 'quarterback'}
 winloss = {'win', 'lose', 'last', 'first'}
 positions = {'k', 'qb', 'rb', 'running back', 'runningback', 'quarter back',
-             'quarterback', 'd/st', 'd/st', 'defense', 'kicker', 'flex', 'te',
+             'quarterback', 'd/st', 'd', 'def', 'defense', 'kicker', 'flex', 'te',
              'tight end', 'wr', 'wide receiver'}
 answers = ['yes', 'no', 'of course', 'perhaps', 'fuck if I know', "it's unlikely",
            'sleep on it', 'it shall be done', 'my sources say no', 'nah', 'definitely',
-           'most likely', 'probs', "I'm not confident in it", 'shabalabanono', 'get J riggity riggity'
-                                                                               ' riggity riggity riggity rekt']
+           'most likely', 'probs', "I'm not confident in it", 'shabalabanono', 'perchance', 'ask your cat']
 sup = {'hi ', 'hello', 'howdy'}
 friendly_answers = ['suh dude', 'suh', 'wassup', "what's crackin'?", 'howdly doodly, neighbor', 'hi', 'hello',
                     'heyyy \U0001F609', 'how u doin']
