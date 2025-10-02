@@ -217,13 +217,6 @@ async def starters(ctx):
                     message: message.author == ctx.author, timeout=10)
         if position:
             position = position.content
-            if position not in positions:
-                # print(position, positions)
-                await ctx.send("I'm sorry, I don't recognize that position. "
-                               "You get one more try.")
-                position = await client.wait_for('message', check=lambda \
-                        message: message.author == ctx.author, timeout=10)
-                position = position.content
             if position.lower() == 'flex':
                 await ctx.channel.send(flex_squads.pick_flex(msg, flexable_players))
             else:
