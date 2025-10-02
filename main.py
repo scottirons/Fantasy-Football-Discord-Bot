@@ -377,7 +377,7 @@ async def on_message(message):
             return
         else:
             await message.channel.send(file=discord.File('watchyourprofanity.gif'))
-    if ('ass') in message.content:
+    if 'ass' in message.content:
         if message.channel.id == 883758150287757322:
             return
         else:
