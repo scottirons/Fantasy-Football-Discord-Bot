@@ -18,7 +18,7 @@ from espn_api.football import League
 
 load_dotenv()
 
-current_week = (date.today() - date(2024, 9, 10)).days // 7 + 2
+current_week = (date.today() - date(2025, 9, 9)).days // 7 + 2
     
 questions = {'who', 'what', 'which'}
 rbeez = {'rb', 'running back', 'runningback'}
@@ -41,7 +41,7 @@ swears = {'fuck', 'shit', 'damn', ' ass ', 'bitch', 'cunt', 'whore', 'dick', 'la
 intents = discord.Intents.default()
 intents.message_content = True
 client = commands.Bot(command_prefix=['!'], intents=intents)
-league = League(league_id=41302936, year=2024, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
+league = League(league_id=41302936, year=2025, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
                                                        'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G%2F2zGVo%2BKM0YtL1At' \
                                                        'pcN2ZiLNyhIMeCr7BvYd056vhbRRX3nwd%2Fxq23R9w7bwyDhyIH5sMxVBOur690YldBTTCLJZjbHk' \
                                                        'rUg0tA6kcD3wtCiP8CICrQmezMZBSpu6dad61FwoAIJSNo2NqexL5627uGt%2BXX9f9SFK6EcqNk2z7' \
@@ -89,8 +89,8 @@ async def on_ready():
 async def update(ctx):
     start_time = time.perf_counter()
     global league, nested_dict, flexable_players, goober_scores, current_week
-    current_week = (date.today() - date(2024, 9, 10)).days // 7 + 2
-    league = League(league_id=41302936, year=2024, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
+    current_week = (date.today() - date(2025, 9, 9)).days // 7 + 2
+    league = League(league_id=41302936, year=2025, espn_s2='AEBZs%2F0JhLRPJvsLxD28BaBMEXt4wQELeh' \
                                                            'O2P9NAnhL2Nz23A%2Blf%2Fdal7ftW7YcOr7YngIMBEHj1pd72KKtrW2G'
                                                            '%2F2zGVo%2BKM0YtL1At' \
                                                            'pcN2ZiLNyhIMeCr7BvYd056vhbRRX3nwd'
